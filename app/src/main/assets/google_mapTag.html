@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 100%;
+       }
+	   html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body onload="javascript:sharp.showLatLng()">
+    <div id="map"></div>
+    <script>
+      //显示标记点
+      function showTag(position){
+          var uluru = {lat: 35.780287, lng: 104.1339231};
+
+          //将传过来的json转换为json对象
+          var json_ob=eval(position);
+          //遍历json对象，将对象添加为一个坐标点
+          for(var i=0;i<json_ob.length;i++){
+              var lat=json_ob[i].lat;
+              var lng=json_ob[i].lng;
+              var LatLng={lat: lat,lng: lng};
+
+              //显示地图
+              var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 15,
+                  center: LatLng,
+                  mapTypeId: 'hybrid'
+              });
+
+              //显示标记
+              var marker=new google.maps.Marker({
+                  position: LatLng,
+                  map: map
+              });
+          }
+      }
+    </script>
+    <script async defer
+    src="http://ditu.google.cn/maps/api/js?key=AIzaSyBNeWlJp3ljvRdHn9cqr8tqX7KSEuNDzYQ">
+    </script>
+  </body>
+</html>

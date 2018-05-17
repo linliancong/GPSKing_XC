@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zxhl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <RelativeLayout
+        android:id="@+id/wtfkjl"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@color/bg_white"
+        android:clickable="true"
+        android:focusable="true"
+        >
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_imgtxt_back_wtfkjl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="15dp"
+            zxhl:iconDrawable="@mipmap/cs_ic_back_blue"
+            zxhl:iconDrawablePress="@mipmap/cs_ic_back_blue_press"
+            zxhl:spacing="10dp"
+            zxhl:style="iconLeft"
+            zxhl:text="反馈记录"
+            zxhl:textSize="18"
+            zxhl:textColor="@color/black"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/div_white"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ly_sche"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_pressed"
+        android:layout_below="@+id/wtfkjl"
+        android:visibility="gone"
+        >
+        <ImageView
+            android:id="@+id/img_sche"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/anima_sche"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ListView
+            android:id="@+id/setting_wtfk_list_fkjl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#00000000"
+            android:cacheColorHint="#00000000"
+            android:scrollbars="none"
+            android:background="@color/black_bg"
+            android:listSelector="#00000000"
+            android:stackFromBottom="false"
+            android:transcriptMode="alwaysScroll"
+            />
+        <ImageView
+            android:id="@+id/setting_wtfk_img_fkjl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:layout_centerHorizontal="true"
+            android:src="@mipmap/feedback_f_icon_bill"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/setting_wtfk_txt_fkjl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="没有反馈记录"
+            android:layout_below="@+id/setting_wtfk_img_fkjl"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:textSize="10sp"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zxhl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@color/bg_white"
+        android:clickable="true"
+        android:focusable="true"
+        >
+
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/settingve_imgtxt_vehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="15dp"
+            zxhl:iconDrawable="@mipmap/cs_ic_back_blue"
+            zxhl:iconDrawablePress="@mipmap/cs_ic_back_blue_press"
+            zxhl:spacing="10dp"
+            zxhl:style="iconLeft"
+            zxhl:text="绑定机号"
+            zxhl:textSize="18"
+            zxhl:textColor="@color/black"
+            />
+
+        <Button
+            android:id="@+id/settingve_btn_update"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_width="50dp"
+            android:layout_height="26dp"
+            android:background="@drawable/me_sy_btn"
+            android:text="绑定"
+            android:textColor="@color/bg_white"
+            android:textSize="12sp"
+            android:enabled="false"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/div_white"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="机号"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        />
+
+    <AutoCompleteTextView
+        android:id="@+id/settingve_auto_vehicle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:hint="请输入机号"
+        android:textSize="14sp"
+        android:textColor="@color/text_gray"
+        android:background="@null"
+        android:dropDownVerticalOffset="10dp"
+        android:dropDownHeight="200dp"
+        android:drawableBottom="@drawable/line"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="天数（天）"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        />
+
+
+    <AutoCompleteTextView
+        android:id="@+id/settingve_auto_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:hint="请输入默认显示的天数"
+        android:textSize="14sp"
+        android:textColor="@color/text_gray"
+        android:background="@null"
+        android:dropDownVerticalOffset="10dp"
+        android:dropDownHeight="200dp"
+        android:drawableBottom="@drawable/line"
+        android:inputType="number"
+        />
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zxhl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    >
+
+    <RelativeLayout
+        android:id="@+id/setting_ly_gy1"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@color/bg_white"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_alignParentTop="true"
+        >
+
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/settinggy_imgtxt_gy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="15dp"
+            zxhl:iconDrawable="@mipmap/cs_ic_back_blue"
+            zxhl:iconDrawablePress="@mipmap/cs_ic_back_blue_press"
+            zxhl:spacing="10dp"
+            zxhl:style="iconLeft"
+            zxhl:text="关于"
+            zxhl:textSize="18"
+            zxhl:textColor="@color/black"
+            />
+
+        <Button
+            android:id="@+id/setting_btn_share_gy"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:background="@drawable/share"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_centerVertical="true"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/div_white"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/img_gy"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_below="@+id/setting_ly_gy1"
+        android:src="@drawable/gpsking_logo2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="96dp"
+        />
+    <TextView
+        android:id="@+id/setting_txt_gy1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_gy"
+        android:layout_centerHorizontal="true"
+        android:text="GPSKing"
+        android:textSize="18sp"
+        android:textColor="@color/black_text"
+        android:layout_marginTop="20dp"
+        />
+    <TextView
+        android:id="@+id/setting_txt_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setting_txt_gy1"
+        android:layout_centerHorizontal="true"
+        android:text="版本 1.0.0-beta"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/setting_txt_banq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="版权所有 © 厦门众星互联信息科技有限公司"
+        android:textSize="10sp"
+        android:layout_marginBottom="20dp"
+
+        />
+
+</RelativeLayout>

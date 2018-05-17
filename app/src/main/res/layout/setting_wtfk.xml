@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zxhl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:background="@color/bg_white"
+        android:clickable="true"
+        android:focusable="true"
+        >
+
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_imgtxt_back_wtfk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:paddingLeft="15dp"
+            zxhl:iconDrawable="@mipmap/cs_ic_back_blue"
+            zxhl:iconDrawablePress="@mipmap/cs_ic_back_blue_press"
+            zxhl:spacing="10dp"
+            zxhl:style="iconLeft"
+            zxhl:text="问题与建议"
+            zxhl:textSize="18"
+            zxhl:textColor="@color/black"
+            />
+
+        <Button
+            android:id="@+id/setting_btn_send_wtfk"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_width="29dp"
+            android:layout_height="28dp"
+            android:background="@drawable/send_question"
+            android:enabled="false"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/div_white"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        >
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_txt_wtfk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            zxhl:text="问题描述或建议"
+            zxhl:textSize="16"
+            zxhl:textColor="@color/black"
+            zxhl:iconDrawable="@mipmap/feedback_ic_red_start"
+            />
+
+        <TextView
+            android:id="@+id/setting_txt_fkjl_wtfk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="反馈记录"
+            android:textSize="12sp"
+            android:textColor="@color/light_blue_500"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setting_txt_wtfk"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/setting_wtfk_edit"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        >
+        <EditText
+            android:id="@+id/setting_edit_question_wtfk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:lines="8"
+            android:textSize="16sp"
+            android:hint="请在此描述你遇到的问题或者提出的建议（必填）"
+            android:gravity="left"
+            android:maxLength="400"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/setting_txt2_wtfk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="出现频率"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
+
+        <Spinner
+            android:id="@+id/setting_spinner_wtfk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:spinnerMode="dropdown"
+            android:dropDownVerticalOffset="34dp"
+            android:popupBackground="@drawable/simlpe_spinner_bg"
+
+            />
+    </LinearLayout>
+
+
+    <com.zxhl.util.ImgTxtLayout
+        android:id="@+id/setting_txt3_wtfk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        zxhl:text="联系方式"
+        zxhl:textSize="16"
+        zxhl:textColor="@color/black"
+        zxhl:iconDrawable="@mipmap/feedback_ic_red_start"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/setting_wtfk_edit"
+        android:paddingLeft="20dp"
+        >
+        <EditText
+            android:id="@+id/setting_edit_lxfs_wtfk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:hint="输入电话或邮箱"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/log_ly_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/setting_wtfk_text"
+        >
+        <LinearLayout
+            android:id="@+id/log_ly1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="机号："
+                    android:textSize="12sp"
+                    />
+                <TextView
+                    android:id="@+id/log_item_vehicle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="GB3-68"
+                    android:textSize="14sp"
+                    android:textColor="@color/black_text"
+                    android:paddingLeft="10dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="遥控时间："
+                    android:textSize="12sp"
+                    />
+                <TextView
+                    android:id="@+id/log_item_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="2018-02-01 12:35:56"
+                    android:textSize="14sp"
+                    android:textColor="@color/black_text"
+                    android:paddingLeft="10dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/log_v1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_below="@+id/log_ly1"
+            android:visibility="gone"
+            />
+
+        <LinearLayout
+            android:id="@+id/log_ly2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/log_ly1"
+            >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所属用户："
+                    android:textSize="12sp"
+                    />
+                <TextView
+                    android:id="@+id/log_item_operator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="众星互联"
+                    android:textSize="14sp"
+                    android:textColor="@color/black_text"
+                    android:paddingLeft="10dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="遥控类型："
+                    android:textSize="12sp"
+                    />
+                <TextView
+                    android:id="@+id/log_item_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="原状态"
+                    android:textSize="14sp"
+                    android:textColor="@color/black_text"
+                    android:paddingLeft="10dp"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/log_v2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_below="@+id/log_ly2"
+            android:visibility="gone"
+            />
+
+        <LinearLayout
+            android:id="@+id/log_ly3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/log_ly2"
+            >
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="报警位置："
+                    android:textSize="12sp"
+                    />
+                <TextView
+                    android:id="@+id/log_item_position"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="厦门"
+                    android:textColor="@color/black_text"
+                    android:paddingLeft="10dp"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

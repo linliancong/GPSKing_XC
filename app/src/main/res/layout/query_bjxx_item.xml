@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/bjxx_ly_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/setting_wtfk_text"
+        >
+        
+        <LinearLayout
+            android:id="@+id/bjxx_ly1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="报警时间："/>
+            <TextView
+                android:id="@+id/bjxx_item_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2018-02-01 12:36:50"
+                android:textSize="18sp"
+                android:textColor="@color/black_text"
+                android:paddingLeft="10dp"
+                />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/bjxx_v1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_below="@+id/bjxx_ly1"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/bjxx_ly2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bjxx_ly1"
+            android:padding="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="机号："
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/bjxx_item_jh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="635205"
+            android:textSize="20sp"
+            android:textColor="@color/black_text"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp"
+            android:gravity="center"
+            android:layout_below="@+id/bjxx_ly2"
+            />
+
+        <View
+            android:id="@+id/bjxx_v2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_below="@+id/bjxx_item_jh"
+            />
+
+        <LinearLayout
+            android:id="@+id/bjxx_ly3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/bjxx_item_jh"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否处理："/>
+            <TextView
+                android:id="@+id/bjxx_item_sfcl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未处理"
+                android:textSize="18sp"
+                android:textColor="@color/black_text"
+                android:paddingLeft="10dp"
+                />
+        </LinearLayout>
+        <View
+            android:id="@+id/bjxx_v3"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_below="@+id/bjxx_ly3"
+            />
+
+        <RelativeLayout
+            android:id="@+id/bjxx_ly4"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/bjxx_ly3"
+            android:padding="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:gravity="center_vertical"
+                android:text="查看详情"
+                android:textColor="@color/light_blue_500"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/cs_arrow_right"
+                />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

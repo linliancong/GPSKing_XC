@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <files-path
+        name="GPSKing_files"
+        path="." />
+    <root-path
+        name="GPSKing_root"
+        path="." />
+    <cache-path
+        name="GPSKing_catch"
+        path="." />
+    <external-path
+        name="GPSKing_epath"
+        path="." />
+    <external-files-path
+        name="GPSKing_efpath"
+        path="." />
+    <external-cache-path
+        name="GPSKing_ecpath"
+        path="." />
+
+</paths>

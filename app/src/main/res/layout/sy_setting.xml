@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zxhl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_bg"
+    >
+
+    <RelativeLayout
+        android:id="@+id/setting_ly_vehicle"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/sy_setting_layout_pressed"
+        android:clickable="true"
+        android:focusable="true"
+        >
+        <TextView
+            android:id="@+id/setting_txt_vehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:text="机号绑定"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_imgtxt_vehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            zxhl:iconDrawable="@mipmap/cs_arrow_right"
+            zxhl:spacing="4dp"
+            zxhl:style="iconRight"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/setting_ly_gy"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/sy_setting_layout_pressed"
+        android:clickable="true"
+        android:focusable="true"
+        >
+        <TextView
+            android:id="@+id/setting_txt_gy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:text="关于"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_imgtxt_gy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            zxhl:iconDrawable="@mipmap/cs_arrow_right"
+            zxhl:spacing="4dp"
+            zxhl:style="iconRight"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/setting_ly_jcgx"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/sy_setting_layout_pressed"
+        android:clickable="true"
+        android:focusable="true"
+        >
+        <TextView
+            android:id="@+id/setting_txt_jcgx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:text="检查更新"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_imgtxt_jcgx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            zxhl:iconDrawable="@mipmap/cs_arrow_right"
+            zxhl:spacing="4dp"
+            zxhl:style="iconRight"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/setting_ly_wtfk"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/sy_setting_layout_pressed"
+        android:clickable="true"
+        android:focusable="true"
+        >
+        <TextView
+            android:id="@+id/setting_txt_wtfk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:text="问题与建议"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_imgtxt_wtfk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            zxhl:iconDrawable="@mipmap/cs_arrow_right"
+            zxhl:spacing="4dp"
+            zxhl:style="iconRight"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/setting_ly_xgmm"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:background="@drawable/sy_setting_layout_pressed"
+        android:clickable="true"
+        android:focusable="true"
+        >
+        <TextView
+            android:id="@+id/setting_txt_xgmm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:text="修改密码"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_imgtxt_xgmm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            zxhl:iconDrawable="@mipmap/cs_arrow_right"
+            zxhl:spacing="4dp"
+            zxhl:style="iconRight"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/setting_ly_tc"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/sy_setting_layout_pressed"
+        android:clickable="true"
+        android:focusable="true"
+        >
+        <TextView
+            android:id="@+id/setting_txt_tc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:text="退出"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            />
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/setting_imgtxt_tc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            zxhl:iconDrawable="@mipmap/cs_arrow_right"
+            zxhl:spacing="4dp"
+            zxhl:style="iconRight"
+            />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent2">#62b900</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="black_pressed">#1C000000</color>
+    <color name="black_bg">#10000000</color>
+    <color name="black_line">#19000000</color>
+    <color name="black_time">#15000000</color>
+    <color name="black">#BB000000</color>
+    <color name="black_text">#000000</color>
+    <color name="button_color">#62bb22</color>
+    <color name="blue_title">#0080FF</color>
+
+    <color name="bg_white">#FFFFFF</color>
+    <color name="bg_gray">#F1F1F1</color>
+    <color name="bg_gray_opc">#99F1F1F1</color>
+    <color name="bg_topbar">#FCFCFC</color>
+    <color name="text_gray">#8D7A71</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_yellow">#FFC800</color>
+    <color name="text_topbar">#694E42</color>
+    <color name="div_white">#E5E5E5</color>
+    <color name="green">#34c902</color>
+    <color name="green_nomal">#aa399e18</color>
+
+    <color name="blue_400">#42A5F5</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="blue_600">#1E88E5</color>
+    <color name="blue_a200">#448AFF</color>
+    <color name="blue_a400">#2979FF</color>
+
+    <color name="light_blue_400">#29B6F6</color>
+    <color name="light_blue_500">#03A9F4</color>
+    <color name="light_blue_600">#039BE5</color>
+    <color name="light_blue_a200">#40C4FF</color>
+    <color name="light_blue_a400">#00B0FF</color>
+
+    <color name="cyan_400">#26C6DA</color>
+    <color name="cyan_500">#00BCD4</color>
+    <color name="cyan_600">#00ACC1</color>
+    <color name="cyan_a200">#18FFFF</color>
+    <color name="cyan_a400">#00E5FF</color>
+    
+    <color name="colouds">#ECF0F1</color>
+    
+    <color name="carrot">#e67e22</color>
+    <color name="pumpkin">#d35400</color>
+    <color name="sumflower">#f1c40f</color>
+    <color name="orange">#f39c12</color>
+    <color name="alizarin">#e74c3c</color>
+    <color name="pomegranate">#c0392b</color>
+    <color name="turquoise">#1abc9c</color>
+    <color name="greensea">#16a085</color>
+    <color name="emerald">#2ecc71</color>
+    <color name="nephritis">#27ae60</color>
+    <color name="peterriver">#3498db</color>
+    <color name="belizehole">#2980b9</color>
+    <color name="amethyst">#9b59b6</color>
+    <color name="wisteria">#8e44ad</color>
+
+
+</resources>

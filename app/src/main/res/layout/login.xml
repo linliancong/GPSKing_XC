@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_white"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:text="欢迎使用GPSKing"
+            android:textSize="25sp"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:id="@+id/txt_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="请登录"
+
+            />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/editText_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:hint="用户名"
+            android:inputType="textPersonName"
+            app:met_baseColor="#000"
+            app:met_clearButton="true"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="用户名"
+            app:met_maxCharacters="12"
+            app:met_primaryColor="@color/light_blue_500"
+            />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/editText_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="密码"
+            android:inputType="textPassword"
+            app:met_baseColor="#000"
+            app:met_clearButton="true"
+            app:met_floatingLabel="highlight"
+            app:met_floatingLabelText="密码"
+            app:met_maxCharacters="10"
+            app:met_primaryColor="@color/light_blue_500"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_margin="20dp"
+        android:alpha="1"
+        android:text="登录"
+        android:textSize="18sp"
+        android:enabled="false"
+        android:background="@drawable/login_button_drawable"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:zxhl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/ad_ly_user"
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"
+        android:paddingLeft="25dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/sy_setting_layout_pressed"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/ad_imgtxt_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            zxhl:text="退出当前账号"
+            zxhl:textColor="@color/black"
+            zxhl:iconDrawable="@drawable/exit1"
+            zxhl:iconWidth="24dp"
+            zxhl:iconHeight="24dp"
+            zxhl:spacing="14dp"
+            zxhl:focusable="false"
+            zxhl:clickable="false"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ad_ly_exit"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:paddingLeft="25dp"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/ad_ly_user"
+        android:background="@drawable/sy_setting_layout_pressed"
+        android:clickable="true"
+        android:focusable="true"
+        >
+
+        <com.zxhl.util.ImgTxtLayout
+            android:id="@+id/ad_imgtxt_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            zxhl:text="关闭GPSKing"
+            zxhl:textColor="@color/black"
+            zxhl:iconDrawable="@drawable/exit2"
+            zxhl:iconHeight="24dp"
+            zxhl:iconWidth="24dp"
+            zxhl:spacing="14dp"
+            zxhl:focusable="false"
+            zxhl:clickable="false"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:background="@color/black_line"
+            android:layout_alignParentBottom="true"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

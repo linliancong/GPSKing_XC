@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zxhl.gpsking"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:versionCode="1"
+    android:versionName="1.0.1-beta"
+    >
+
+    <!--
+    关闭硬件加速
+    android:hardwareAccelerated="false"
+    获取需要的内存
+        android:largeHeap="true"
+    -->
+    <application
+        tools:replace="android:icon, android:theme"
+        android:allowBackup="true"
+        android:icon="@drawable/gpsking_logo3"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/gpsking_logo"
+        android:supportsRtl="true"
+        android:theme="@style/NoActionBar">
+
+        <!--高德地图配置Demo1(调试版本)-->
+        <!--<meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="69c00f72da4a0cce23a1b98ace1ac2af"
+            />-->
+
+        <!--高德地图配置(发布版本+调试版本)-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="be2dbd9bb005e98a381f4102cb880c89"
+            />
+
+        <!--Google Map配置-->
+        <!--<meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />-->
+
+        <!--
+         在android4.0以上系统中的 Activity加上下面这句，可以支持地图横竖屏切换
+         android:configChanges="orientation|keyboardHidden|screenSize"
+                               例如：
+         <activity
+            android:name=".basic.BasicMapActivity"
+            android:label="@string/basic_map"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+
+        -->
+        <!--页面配置-->
+        <activity
+            android:name=".MainActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		<activity
+            android:name=".Login"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.LOGIN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".HomePage"
+
+            >
+
+            <intent-filter>
+                <action android:name="android.intent.action.HOMEPAGE"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MeSyGd">
+            <intent-filter>
+                <action android:name="android.intent.action.MESYGD"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MeSyUpdate">
+            <intent-filter>
+                <action android:name="android.intent.action.MESYUPDATE"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingSyGy"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.SETTINGSYGY"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingSyGyShare">
+            <intent-filter>
+                <action android:name="android.intent.action.SETTINGSYGYSHARE"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingSyPWD">
+            <intent-filter>
+                <action android:name="android.intent.action.SETTINGSYPWD"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingSyWtfk">
+        <intent-filter>
+            <action android:name="android.intent.action.SETTINGSYWTFK"/>
+
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+        </activity>
+        <activity android:name=".SettingSyWtfkJl">
+            <intent-filter>
+                <action android:name="android.intent.action.SETTINGSYWTFKJL"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".SettingSyVehicle">
+            <intent-filter>
+                <action android:name="android.intent.action.SETTINGSYVEHICLE"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyLocation">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYLOCATION"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyNavi">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYNAVI"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zxhl.util.GPSNaviUtil">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYGPSNAVIUTIL"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyTrackPlayback">
+            <intent-filter>
+                    <action android:name="android.intent.action.QUERYSYTRACKPLAYBACK"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyGkxx">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYGKXX"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyBbtj">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYBBTJ"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyYjcl">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYYJCL"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyYycl">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYYYCL"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySySbxx">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYSBXX"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyScxx">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYSCXX"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyBjxx">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYBJXX"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyBytx">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYBYTX"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyGpsyc">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYGPSYC"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".QuerySyRemote">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYREMOTE"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".SendAlarmInfo">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDALARMINFO"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".OperatingCenter">
+            <intent-filter>
+                <action android:name="android.intent.action.OPERATINGCENTER"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".OpcLocation">
+            <intent-filter>
+                <action android:name="android.intent.action.OPCLOCATION"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".OpcLock">
+            <intent-filter>
+                <action android:name="android.intent.action.OPCLOCK"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".OpcUnLock">
+            <intent-filter>
+                <action android:name="android.intent.action.OPCUNLOCK"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".OpcMonitor">
+            <intent-filter>
+                <action android:name="android.intent.action.OPCMONITOR"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".OpcOilEleControl">
+            <intent-filter>
+                <action android:name="android.intent.action.OPCOILELECONTROL"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".OpcLockTime">
+            <intent-filter>
+                <action android:name="android.intent.action.OPCLOCKTIME"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".OpcLog">
+            <intent-filter>
+                <action android:name="android.intent.action.OPCLOG"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.zxhl.gpsking"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path" />
+        </provider>
+
+        <!--监听网络变化的广播-->
+        <receiver android:name="com.zxhl.util.NetWorkBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <!--监听程序安装的服务-->
+        <receiver android:name="com.zxhl.util.MyBroad">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+
+        <!--我的更新广播-->
+        <receiver android:name=".MeSy$MyBroadcastMeSy">
+            <intent-filter>
+                <action android:name="com.zxhl.gpsking.MYBROADCASTMESY"/>
+
+            </intent-filter>
+        </receiver>
+        <!--首页设置广播-->
+        <receiver android:name=".HomeSy$MyBroadcastHomeSy">
+            <intent-filter>
+                <action android:name="com.zxhl.gpsking.MYBROADCASTHOMESY"/>
+
+            </intent-filter>
+        </receiver>
+
+        <!--下载更新启用的服务-->
+        <service android:name="com.zxhl.util.DownloadService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.zxhl.util.DOWNLOADSERVICE"/>
+            </intent-filter>
+        </service>
+
+        <!-- 定位需要的服务 使用2.0的定位需要加上这个 -->
+        <service android:name="com.amap.api.location.APSService" >
+        </service>
+
+    </application>
+
+    <!--权限配置-->
+    <!--设置可以访问网络-->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 指定添加权限   获取网络信息状态，如当前的网络连接是否有效-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--获取存储权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <!--安装程序的权限-->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <!--震动的权限-->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!--发送系统广播-->
+    <uses-permission android:name="android.permission.CONTROL_KEYGUARD"/>
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--发送短信-->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    //地图包、搜索包需要的基础权限
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    //定位包、导航包需要的额外权限（注：基础权限也需要）
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!--<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />-->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+
+
+
+</manifest>
