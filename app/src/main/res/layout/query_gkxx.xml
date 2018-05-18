@@ -149,7 +149,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="定位数据"
+                android:text="工作状态"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_alignParentLeft="true"
@@ -192,7 +192,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="最后定位时间："
+                    android:text="开/关机状态："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -213,7 +213,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="最后位置："
+                    android:text="注册状态："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -234,7 +234,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="经度："
+                    android:text="监控状态："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -255,7 +255,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="纬度："
+                    android:text="锁机模式："
                     android:textSize="12sp"
                     />
 
@@ -284,7 +284,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="工作时间"
+                android:text="故障信息"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_alignParentLeft="true"
@@ -327,7 +327,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="总工作时间："
+                    android:text="故障代码："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -343,6 +343,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"
@@ -376,7 +377,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="工况报警"
+                android:text="工作位置"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_alignParentLeft="true"
@@ -419,7 +420,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="液压油温报警："
+                    android:text="最新有效位置时间："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -440,7 +441,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="水温过热报警："
+                    android:text="最新有效位置："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -456,6 +457,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"
@@ -477,6 +479,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"
@@ -499,6 +502,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"
@@ -521,6 +525,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"
@@ -543,6 +548,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"
@@ -565,6 +571,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"
@@ -587,6 +594,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:id="@+id/gkxx_v_gkbj1"
@@ -610,6 +618,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:id="@+id/gkxx_v_gkbj2"
@@ -645,7 +654,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="工作状态"
+                android:text="工作时间"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_alignParentLeft="true"
@@ -683,13 +692,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:id="@+id/gkxx_v_gzzt"
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="工作状态："
+                    android:text="车台类型："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -710,7 +720,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="锁解车状态："
+                    android:text="总工作时间："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -731,7 +741,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="监控状态："
+                    android:text="总作业时间："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -759,7 +769,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="GPS状态数据"
+                android:text="车台信息"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_alignParentLeft="true"
@@ -802,7 +812,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="GPS天线状态："
+                    android:text="机号："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -823,7 +833,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="手机信号强度："
+                    android:text="SIM卡号："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -844,7 +854,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="登录中心情况："
+                    android:text="车台编号："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -866,7 +876,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="GPS自身状态模式/ACC："
+                    android:text="车台类型："
                     android:textSize="12sp"
                     />
 
@@ -889,7 +899,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="样机锁车时间/省电模式："
+                    android:text="车辆类型："
                     android:textSize="12sp"
                     />
 
@@ -912,7 +922,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="GPS数据："
+                    android:text="所属地区："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -934,7 +944,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="GPS报警："
+                    android:text="所属分组："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -956,7 +966,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="主电源情况："
+                    android:text="车台程序版本号："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -972,6 +982,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:id="@+id/gkxx_v_gps6"
@@ -1006,7 +1017,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="工况数据"
+                android:text="工况信息"
                 android:textSize="16sp"
                 android:textColor="@color/black"
                 android:layout_alignParentLeft="true"
@@ -1049,7 +1060,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="最后工况时间："
+                    android:text="系统电压："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -1070,7 +1081,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="电压："
+                    android:text="发动机转速："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -1091,7 +1102,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="水温："
+                    android:text="发动机运转时间："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -1112,7 +1123,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="油温："
+                    android:text="发动机冷却液温度："
                     android:textSize="12sp"
                     />
 
@@ -1151,6 +1162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"
@@ -1173,6 +1185,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="0dp"

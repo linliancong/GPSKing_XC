@@ -6,11 +6,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
-import com.zxhl.gpsking.HomePage;
-import com.zxhl.gpsking.HomeSy;
-import com.zxhl.gpsking.MeSy;
-import com.zxhl.gpsking.QuerySy;
-import com.zxhl.gpsking.SettingSy;
+import com.zxhl.gpskingforxc.HomePage;
+import com.zxhl.gpskingforxc.HomeSy;
+import com.zxhl.gpskingforxc.MeSy;
+import com.zxhl.gpskingforxc.QuerySy;
+import com.zxhl.gpskingforxc.SettingSy;
 
 /**
  * Created by Administrator on 2017/11/29.

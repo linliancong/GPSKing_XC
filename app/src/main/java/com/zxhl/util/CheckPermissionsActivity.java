@@ -7,21 +7,17 @@ import java.util.List;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
-import com.zxhl.gpsking.R;
+import com.zxhl.gpskingforxc.R;
 
 /**
  * 继承了Activity，实现Android6.0的运行时权限检测

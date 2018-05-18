@@ -4,13 +4,11 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Binder;
@@ -19,21 +17,15 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.os.StrictMode;
-import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.FileProvider;
-import android.util.Log;
-import android.widget.Toast;
 
-import com.zxhl.gpsking.R;
-import com.zxhl.gpsking.SettingSy;
+import com.zxhl.gpskingforxc.R;
 import com.zxhl.util.FileDownloadUtil.DownloadProgressListener;
 import com.zxhl.util.FileDownloadUtil.FileDownloadered;
 
 import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Administrator on 2017/12/19.

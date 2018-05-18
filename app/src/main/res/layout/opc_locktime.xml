@@ -152,12 +152,13 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
                 >
+
                 <Button
-                    android:id="@+id/locktime_ydkz"
+                    android:id="@+id/locktime_log"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
-                    android:text="远程遥控"
+                    android:text="指令记录"
                     android:textColor="@color/light_blue_500"
                     android:background="@null"
                     />
@@ -185,14 +186,17 @@
                     android:layout_marginLeft="15dp"
                     />
                 <Button
-                    android:id="@+id/locktime_log"
+                    android:id="@+id/locktime_ydkz"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
-                    android:text="指令记录"
+                    android:text=""
                     android:textColor="@color/light_blue_500"
                     android:background="@null"
+                    android:clickable="false"
+                    android:focusable="false"
                     />
+
             </LinearLayout>
 
         </LinearLayout>

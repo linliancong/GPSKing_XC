@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.zxhl.gpsking.R;
+import com.zxhl.gpskingforxc.R;
 
 
 /**

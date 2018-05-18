@@ -5,17 +5,13 @@ import android.support.annotation.NonNull;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.AbsListView;
 import android.widget.ListView;
 
-import com.iflytek.cloud.util.VolumeUtil;
-import com.zxhl.gpsking.R;
-
-import org.apache.http.cookie.CookieIdentityComparator;
+import com.zxhl.gpskingforxc.R;
 
 //import android.support.v7.widget.RecyclerView;
 /**

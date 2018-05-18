@@ -12,7 +12,7 @@ public class ApkVersionUtils {
     public static int getVerCode(Context context){
         int verCode=-1;
         try {
-            verCode=context.getPackageManager().getPackageInfo("com.zxhl.gpsking",0).versionCode;
+            verCode=context.getPackageManager().getPackageInfo("com.zxhl.gpskingforxc",0).versionCode;
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -23,7 +23,7 @@ public class ApkVersionUtils {
     public static String getVerName(Context context){
         String verName="";
         try {
-            verName=context.getPackageManager().getPackageInfo("com.zxhl.gpsking",0).versionName;
+            verName=context.getPackageManager().getPackageInfo("com.zxhl.gpskingforxc",0).versionName;
         }catch (Exception e){
             e.printStackTrace();
         }

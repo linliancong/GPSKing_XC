@@ -252,6 +252,7 @@
             android:layout_below="@+id/opc_ly_jk"
             android:clickable="true"
             android:focusable="true"
+            android:visibility="gone"
             >
 
             <ImageView
@@ -300,6 +301,7 @@
             android:layout_below="@+id/opc_ly_yd"
             android:clickable="true"
             android:focusable="true"
+            android:visibility="visible"
             >
 
             <ImageView
@@ -312,7 +314,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="样机管理"
+                android:text="定时锁车"
                 android:layout_toRightOf="@+id/opc_img_dssc"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"

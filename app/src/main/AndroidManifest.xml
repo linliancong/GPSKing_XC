@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zxhl.gpsking"
+    package="com.zxhl.gpskingforxc"
     xmlns:tools="http://schemas.android.com/tools"
     android:versionCode="1"
     android:versionName="1.0.1-beta"
@@ -30,7 +30,7 @@
         <!--高德地图配置(发布版本+调试版本)-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="be2dbd9bb005e98a381f4102cb880c89"
+            android:value="e5eddf2a2c2f683b11789f2722b972ba"
             />
 
         <!--Google Map配置-->
@@ -54,7 +54,7 @@
         -->
         <!--页面配置-->
         <activity
-            android:name=".MainActivity"
+            android:name="com.zxhl.gpskingforxc.MainActivity"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,7 +63,7 @@
             </intent-filter>
         </activity>
 		<activity
-            android:name=".Login"
+            android:name="com.zxhl.gpskingforxc.Login"
             >
             <intent-filter>
                 <action android:name="android.intent.action.LOGIN"/>
@@ -71,7 +71,7 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".HomePage"
+        <activity android:name="com.zxhl.gpskingforxc.HomePage"
 
             >
 
@@ -81,14 +81,14 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MeSyGd">
+        <activity android:name="com.zxhl.gpskingforxc.MeSyGd">
             <intent-filter>
                 <action android:name="android.intent.action.MESYGD"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MeSyUpdate">
+        <activity android:name="com.zxhl.gpskingforxc.MeSyUpdate">
             <intent-filter>
                 <action android:name="android.intent.action.MESYUPDATE"/>
 
@@ -96,7 +96,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingSyGy"
+            android:name="com.zxhl.gpskingforxc.SettingSyGy"
             >
             <intent-filter>
                 <action android:name="android.intent.action.SETTINGSYGY"/>
@@ -104,49 +104,49 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SettingSyGyShare">
+        <activity android:name="com.zxhl.gpskingforxc.SettingSyGyShare">
             <intent-filter>
                 <action android:name="android.intent.action.SETTINGSYGYSHARE"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SettingSyPWD">
+        <activity android:name="com.zxhl.gpskingforxc.SettingSyPWD">
             <intent-filter>
                 <action android:name="android.intent.action.SETTINGSYPWD"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SettingSyWtfk">
+        <activity android:name="com.zxhl.gpskingforxc.SettingSyWtfk">
         <intent-filter>
             <action android:name="android.intent.action.SETTINGSYWTFK"/>
 
             <category android:name="android.intent.category.DEFAULT"/>
         </intent-filter>
         </activity>
-        <activity android:name=".SettingSyWtfkJl">
+        <activity android:name="com.zxhl.gpskingforxc.SettingSyWtfkJl">
             <intent-filter>
                 <action android:name="android.intent.action.SETTINGSYWTFKJL"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SettingSyVehicle">
+        <activity android:name="com.zxhl.gpskingforxc.SettingSyVehicle">
             <intent-filter>
                 <action android:name="android.intent.action.SETTINGSYVEHICLE"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyLocation">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyLocation">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYLOCATION"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyNavi">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyNavi">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYNAVI"/>
 
@@ -160,140 +160,140 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyTrackPlayback">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyTrackPlayback">
             <intent-filter>
                     <action android:name="android.intent.action.QUERYSYTRACKPLAYBACK"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyGkxx">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyGkxx">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYGKXX"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyBbtj">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyBbtj">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYBBTJ"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyYjcl">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyYjcl">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYYJCL"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyYycl">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyYycl">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYYYCL"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySySbxx">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySySbxx">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYSBXX"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyScxx">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyScxx">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYSCXX"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyBjxx">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyBjxx">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYBJXX"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyBytx">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyBytx">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYBYTX"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyGpsyc">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyGpsyc">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYGPSYC"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".QuerySyRemote">
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyRemote">
             <intent-filter>
                 <action android:name="android.intent.action.QUERYSYREMOTE"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".SendAlarmInfo">
+        <activity android:name="com.zxhl.gpskingforxc.SendAlarmInfo">
             <intent-filter>
                 <action android:name="android.intent.action.SENDALARMINFO"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OperatingCenter">
+        <activity android:name="com.zxhl.gpskingforxc.OperatingCenter">
             <intent-filter>
                 <action android:name="android.intent.action.OPERATINGCENTER"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OpcLocation">
+        <activity android:name="com.zxhl.gpskingforxc.OpcLocation">
             <intent-filter>
                 <action android:name="android.intent.action.OPCLOCATION"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OpcLock">
+        <activity android:name="com.zxhl.gpskingforxc.OpcLock">
             <intent-filter>
                 <action android:name="android.intent.action.OPCLOCK"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OpcUnLock">
+        <activity android:name="com.zxhl.gpskingforxc.OpcUnLock">
             <intent-filter>
                 <action android:name="android.intent.action.OPCUNLOCK"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OpcMonitor">
+        <activity android:name="com.zxhl.gpskingforxc.OpcMonitor">
             <intent-filter>
                 <action android:name="android.intent.action.OPCMONITOR"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OpcOilEleControl">
+        <activity android:name="com.zxhl.gpskingforxc.OpcOilEleControl">
             <intent-filter>
                 <action android:name="android.intent.action.OPCOILELECONTROL"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OpcLockTime">
+        <activity android:name="com.zxhl.gpskingforxc.OpcLockTime">
             <intent-filter>
                 <action android:name="android.intent.action.OPCLOCKTIME"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name=".OpcLog">
+        <activity android:name="com.zxhl.gpskingforxc.OpcLog">
             <intent-filter>
                 <action android:name="android.intent.action.OPCLOG"/>
 
@@ -303,7 +303,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.zxhl.gpsking"
+            android:authorities="com.zxhl.gpskingforxc"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -330,14 +330,14 @@
         </receiver>
 
         <!--我的更新广播-->
-        <receiver android:name=".MeSy$MyBroadcastMeSy">
+        <receiver android:name="com.zxhl.gpskingforxc.MeSy$MyBroadcastMeSy">
             <intent-filter>
                 <action android:name="com.zxhl.gpsking.MYBROADCASTMESY"/>
 
             </intent-filter>
         </receiver>
         <!--首页设置广播-->
-        <receiver android:name=".HomeSy$MyBroadcastHomeSy">
+        <receiver android:name="com.zxhl.gpskingforxc.HomeSy$MyBroadcastHomeSy">
             <intent-filter>
                 <action android:name="com.zxhl.gpsking.MYBROADCASTHOMESY"/>
 
