@@ -74,11 +74,13 @@ public class QuerySy extends Fragment implements View.OnClickListener {
         mData.add(new Icon(R.drawable.sbxx,"设备信息"));
         /*mData.add(new Icon(R.drawable.yycl,"预约车辆"));
         mData.add(new Icon(R.drawable.jk,"遥控设备"));*/
+        mData.add(new Icon(R.drawable.bjxx,"报警信息"));
         if(sp.getRoleID().equals("1")) {
-            mData.add(new Icon(R.drawable.bjxx,"报警信息"));
             mData.add(new Icon(R.drawable.yyzx, "运营中心"));
             /*mData.add(new Icon(0, ""));
             mData.add(new Icon(0, ""));*/
+        }else {
+            mData.add(new Icon(0, ""));
         }
 
 

@@ -185,6 +185,8 @@ public class OpcLog extends StatusBarUtil implements View.OnClickListener,TextWa
                 anima.start();
                 getCodeHistory();
             }
+        }else {
+            getCodeHistory();
         }
     }
 
@@ -453,10 +455,10 @@ public class OpcLog extends StatusBarUtil implements View.OnClickListener,TextWa
             {
                 switch (types[1]) {
                     case "0":
-                        type="退出样机模式";
+                        type="取消定时锁车";
                         break;
                     case "1":
-                        type="进入样机模式";
+                        type="设置定时锁车";
                         break;
                 }
             }

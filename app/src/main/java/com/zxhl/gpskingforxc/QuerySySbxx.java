@@ -486,8 +486,13 @@ public class QuerySySbxx extends StatusBarUtil implements View.OnClickListener,T
                 else {
                     isData=false;
                     isData2=false;
-                    map.put(str[0], str[1]);
+                    if(str.length>=2) {
+                        map.put(str[0], str[1]);
+                    }else{
+                        map.put(str[0], "");
+                    }
                 }
+
             }
             else
             {

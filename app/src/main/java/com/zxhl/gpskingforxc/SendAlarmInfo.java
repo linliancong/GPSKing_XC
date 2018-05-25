@@ -175,7 +175,7 @@ public class SendAlarmInfo extends StatusBarUtil implements View.OnClickListener
                             "【"+ VehicleLic.getText().toString()+"】" +
                             "机器于【"+GPSDateTime.getText().toString()+"】在" +
                             "【"+Position.getText().toString()+"】" +
-                            "发生断电报警";
+                            "发生"+"【"+DealType.getText().toString().split(";")+"】" ;
                 }
                 break;
             case R.id.ad_btn_send_cancel:
@@ -244,13 +244,14 @@ public class SendAlarmInfo extends StatusBarUtil implements View.OnClickListener
         OperatorName.setText(vehicleAlarms.get(0).getOperatorName());
         OwnerName.setText(vehicleAlarms.get(0).getOwnerName());
         GroupName.setText(vehicleAlarms.get(0).getGroupName());
-        if(vehicleAlarms.get(0).getDealType().equals("1")){
+        DealType.setText(vehicleAlarms.get(0).getAlarmType());
+        /*if(vehicleAlarms.get(0).getDealType().equals("1")){
             DealType.setText("未处理");
         }else if(vehicleAlarms.get(0).getDealType().equals("2")) {
             DealType.setText("正在处理");
         }else if(vehicleAlarms.get(0).getDealType().equals("3")){
             DealType.setText("恢复正常");
-        }
+        }*/
         FranchiserID=vehicleAlarms.get(0).getFranchiserID();
         VehicleID=vehicleAlarms.get(0).getVehicleID();
     }
@@ -283,7 +284,7 @@ public class SendAlarmInfo extends StatusBarUtil implements View.OnClickListener
         proper.put("NoticeMode","2");
         proper.put("NoticeContent",msg);
         proper.put("FranchiserID",FranchiserID);
-        proper.put("EmailTitle","断电报警通知");
+        proper.put("EmailTitle","报警通知");
         proper.put("UpFilePath","");
         if(sendType==1) {
             proper.put("Remark", "APP邮件");

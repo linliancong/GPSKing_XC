@@ -158,6 +158,7 @@ public class SettingSy extends Fragment implements View.OnClickListener {
                 break;
             case R.id.setting_ly_jcgx:
                 HashMap<String,String> proper=new HashMap<String,String>();
+                proper.put("APPName",Constants.APPName);
                 WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetVerCode", proper, new WebServiceUtils.WebServiceCallBack() {
                     @Override
                     public void callBack(SoapObject result) {

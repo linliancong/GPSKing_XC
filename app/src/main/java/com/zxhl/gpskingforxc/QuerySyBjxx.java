@@ -350,10 +350,12 @@ public class QuerySyBjxx extends StatusBarUtil implements View.OnClickListener,T
             if(i==info.size()){
                 break;
             }else {
-                vehicleAlarm.add(new VehicleAlarm(info.get(i).get(0), info.get(i).get(1), info.get(i).get(2),
-                        info.get(i).get(3), info.get(i).get(4), info.get(i).get(5),
-                        info.get(i).get(6), info.get(i).get(7), info.get(i).get(8),
-                        info.get(i).get(9), info.get(i).get(10), info.get(i).get(11)));
+                if(!info.get(i).get(12).equals("")) {
+                    vehicleAlarm.add(new VehicleAlarm(info.get(i).get(0), info.get(i).get(1), info.get(i).get(2),
+                            info.get(i).get(3), info.get(i).get(4), info.get(i).get(5),
+                            info.get(i).get(6), info.get(i).get(7), info.get(i).get(8),
+                            info.get(i).get(9), info.get(i).get(10), info.get(i).get(11), info.get(i).get(12)));
+                }
             }
         }
 
@@ -362,6 +364,7 @@ public class QuerySyBjxx extends StatusBarUtil implements View.OnClickListener,T
             public void bindView(ViewHolder holder, VehicleAlarm obj) {
                 holder.setText(R.id.bjxx_item_time,obj.getGPSDateTime());
                 holder.setText(R.id.bjxx_item_jh,obj.getVehicleLic());
+                holder.setText(R.id.bjxx_item_scbj,obj.getAlarmType());
                 if(obj.getDealType().equals("1")){
                     holder.setText(R.id.bjxx_item_sfcl,"未处理");
                 }else if(obj.getDealType().equals("2")) {

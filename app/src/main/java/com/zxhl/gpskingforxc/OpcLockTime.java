@@ -262,16 +262,16 @@ public class OpcLockTime extends StatusBarUtil implements View.OnClickListener,T
             case R.id.locktime_ly_yjsc:
                 ShowKeyboard.hideKeyboard(time);
                 dialog.show();
-                text.setText("确认下发 【样机锁车】 延迟 【"+time.getText()+"】 分钟 指令？");
+                text.setText("确认下发 【定时锁车】 延迟 【"+time.getText()+"】 分钟 指令？");
                 type="1";
-                command="样机锁车";
+                command="定时锁车";
                 break;
             case R.id.locktime_ly_tcyj:
                 ShowKeyboard.hideKeyboard(time);
                 dialog.show();
-                text.setText("确认下发 【退出样机】指令？");
+                text.setText("确认下发 【解除定时】指令？");
                 type="0";
-                command="退出样机";
+                command="解除定时";
                 break;
             case R.id.ad_btn_remotelock_cancel:
                 dialog.dismiss();

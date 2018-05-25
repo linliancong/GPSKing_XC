@@ -95,12 +95,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="是否处理："/>
+                android:text="类型："/>
             <TextView
-                android:id="@+id/bjxx_item_sfcl"
+                android:id="@+id/bjxx_item_scbj"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="未处理"
+                android:text="锁车报警"
                 android:textSize="18sp"
                 android:textColor="@color/black_text"
                 android:paddingLeft="10dp"
@@ -113,6 +113,36 @@
             android:background="@color/black_line"
             android:layout_below="@+id/bjxx_ly3"
             />
+        <LinearLayout
+            android:id="@+id/bjxx_ly5"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:layout_below="@+id/bjxx_ly3"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是否处理："/>
+            <TextView
+                android:id="@+id/bjxx_item_sfcl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="未处理"
+                android:textSize="18sp"
+                android:textColor="@color/black_text"
+                android:paddingLeft="10dp"
+                />
+        </LinearLayout>
+        <View
+            android:id="@+id/bjxx_v5"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/black_line"
+            android:layout_below="@+id/bjxx_ly5"
+            />
 
         <RelativeLayout
             android:id="@+id/bjxx_ly4"
@@ -120,7 +150,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
-            android:layout_below="@+id/bjxx_ly3"
+            android:layout_below="@+id/bjxx_ly5"
             android:padding="10dp"
             >
 

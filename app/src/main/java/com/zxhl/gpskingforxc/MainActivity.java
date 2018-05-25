@@ -29,6 +29,28 @@ import org.ksoap2.serialization.SoapObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+    /*******************************************************
+                           _ooOoo_
+                          o8888888o
+                          88" . "88
+                          (| -_- |)
+                          O\  =  /O
+                       ____/`---'\____
+                     .'  \\|     |//  `.
+                    /  \\|||  :  |||//  \
+                   /  _||||| -:- |||||-  \
+                   |   | \\\  -  /// |   |
+                   | \_|  ''\---/''  |   |
+                   \  .-\__  `-`  ___/-. /
+                 ___`. .'  /--.--\  `. . __
+              ."" '<  `.___\_<|>_/___.'  >'"".
+             | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+             \  \ `-.   \_ __\ /__ _/   .-` /  /
+        ======`-.____`-.___\_____/___.-`____.-'======
+                           `=---='
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                 佛祖保佑       永无BUG
+     *******************************************************/
 
 public class MainActivity extends StatusBarUtil {
     private ImageView img;
@@ -93,7 +115,7 @@ public class MainActivity extends StatusBarUtil {
             HashMap<String,String> proper=new HashMap<String,String>();
             proper.put("NickName",sp.getNickName());
             proper.put("PWD",sp.getPWD());
-            proper.put("Version", "GPSKing_"+ ApkVersionUtils.getVerName(MainActivity.this));
+            proper.put("Version", "GPSKingForXC_"+ ApkVersionUtils.getVerName(MainActivity.this));
             WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "LoginForGPSKing", proper, new WebServiceUtils.WebServiceCallBack() {
                 @Override
                 public void callBack(SoapObject result) {

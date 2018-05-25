@@ -31,6 +31,32 @@ import java.util.List;
  * Created by Administrator on 2017/11/23.
  */
 
+/**
+*
+*          ┌─┐       ┌─┐
+*       ┌──┘ ┴───────┘ ┴──┐
+*       │                 │
+*       │       ───       │
+*       │  ─┬┘       └┬─  │
+*       │                 │
+*       │       ─┴─       │
+*       │                 │
+*       └───┐         ┌───┘
+*           │         │
+*           │         │
+*           │         │
+*           │         └──────────────┐
+*           │                        │
+*           │                        ├─┐
+*           │                        ┌─┘
+*           │                        │
+*           └─┐  ┐  ┌───────┬──┐  ┌──┘
+*             │ ─┤ ─┤       │ ─┤ ─┤
+*             └──┴──┘       └──┴──┘
+*                 神兽保佑
+*                 代码无BUG!
+*/
+
 public class Login extends StatusBarUtil implements View.OnClickListener,TextWatcher{
 
     private Button btn_login;

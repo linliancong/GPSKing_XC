@@ -141,6 +141,7 @@
         android:background="@drawable/setting_wtfk_text_normal"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="53dp"
+        android:visibility="gone"
         >
         <RadioButton
             android:id="@+id/log_app"

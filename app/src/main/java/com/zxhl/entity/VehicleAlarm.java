@@ -19,6 +19,7 @@ public class VehicleAlarm implements Serializable {
     public String OwnerName = "";
     public String GroupName = "";
     public String FranchiserID = "";
+    public String AlarmType="";
 
 
     public VehicleAlarm()
@@ -28,7 +29,7 @@ public class VehicleAlarm implements Serializable {
     public VehicleAlarm(String VehicleID,String Mobile, String DeviceNum, String MModelName,
                         String VehicleLic, String GPSDateTime, String Position,
                         String OperatorName, String DealType, String OwnerName,
-                        String GroupName, String FranchiserID)
+                        String GroupName, String FranchiserID,String AlarmType)
     {
         this.VehicleID = VehicleID;
         this.Mobile = Mobile;
@@ -42,6 +43,7 @@ public class VehicleAlarm implements Serializable {
         this.OwnerName = OwnerName;
         this.GroupName = GroupName;
         this.FranchiserID = FranchiserID;
+        this.AlarmType=AlarmType;
     }
 
     public void setVehicleID(String VehicleID) {
@@ -81,6 +83,9 @@ public class VehicleAlarm implements Serializable {
         this.FranchiserID = FranchiserID;
     }
 
+    public void setAlarmType(String alarmType) {
+        AlarmType = alarmType;
+    }
 
     public String getVehicleID() {
         return VehicleID;
@@ -117,5 +122,9 @@ public class VehicleAlarm implements Serializable {
     }
     public String getFranchiserID(){
         return FranchiserID;
+    }
+
+    public String getAlarmType() {
+        return AlarmType;
     }
 }

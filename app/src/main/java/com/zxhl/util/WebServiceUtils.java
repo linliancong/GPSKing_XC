@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
 public class WebServiceUtils {
     //WebService服务的地址
     public static final String WEB_SERVER_URL="http://117.28.255.123:9999/APPWebService/Service1.asmx";
-    public static final String OperaCenter_URL="http://117.28.255.123:9999/APPControlService/GpsKingService.asmx";
+    public static final String OperaCenter_URL="http://117.28.255.123:9999/APPControlWebService/GpsKingService.asmx";
 
     //开始线程池，含有3个线程
     private static final ExecutorService executor= Executors.newFixedThreadPool(3);

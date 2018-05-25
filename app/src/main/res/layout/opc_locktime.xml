@@ -25,7 +25,7 @@
             zxhl:iconDrawablePress="@mipmap/cs_ic_back_blue_press"
             zxhl:spacing="10dp"
             zxhl:style="iconLeft"
-            zxhl:text="样机管理"
+            zxhl:text="定时锁车"
             zxhl:textSize="18"
             zxhl:textColor="@color/black"
             />
@@ -276,7 +276,7 @@
                         android:id="@+id/locktime_yjsc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="样机锁车"
+                        android:text="定时锁车"
                         android:layout_marginLeft="10dp"
                         />
                 </LinearLayout>
@@ -304,7 +304,7 @@
                         android:id="@+id/locktime_tcyj"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="退出样机"
+                        android:text="解除定时"
                         android:layout_marginLeft="10dp"
                         />
                 </LinearLayout>

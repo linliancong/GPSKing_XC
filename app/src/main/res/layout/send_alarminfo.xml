@@ -277,7 +277,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="是否处理"
+                    android:text="报警类型"
                     />
                 <TextView
                     android:id="@+id/alarm_isdipose"
@@ -294,6 +294,7 @@
                 android:layout_height="36dp"
                 android:paddingRight="15dp"
                 android:paddingLeft="15dp"
+                android:visibility="gone"
                 >
                 <TextView
                     android:layout_width="wrap_content"
@@ -321,6 +322,7 @@
             android:paddingRight="15dp"
             android:paddingLeft="15dp"
             android:layout_marginTop="20dp"
+            android:visibility="visible"
             >
             <Button
                 android:id="@+id/alarm_send"
