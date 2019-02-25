@@ -41,7 +41,7 @@ import java.util.List;
  * Created by Administrator on 2018/1/29.
  */
 
-public class OpcOilEleControl extends StatusBarUtil implements View.OnClickListener,TextWatcher{
+public class OpcElectronicFence extends StatusBarUtil implements View.OnClickListener,TextWatcher{
 
     private ImgTxtLayout back;
     private AutoCompleteTextView vehicle;
@@ -140,7 +140,7 @@ public class OpcOilEleControl extends StatusBarUtil implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        context=OpcOilEleControl.this;
+        context=OpcElectronicFence.this;
 
         init();
         getVehicleLic();
@@ -164,7 +164,7 @@ public class OpcOilEleControl extends StatusBarUtil implements View.OnClickListe
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.opc_oilelecontrol;
+        return R.layout.opc_electronicfence;
     }
 
     public void init(){
