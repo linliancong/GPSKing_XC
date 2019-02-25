@@ -66,30 +66,23 @@ public class QuerySy extends Fragment implements View.OnClickListener {
         mData.add(new Icon(R.drawable.ccdh,"查车导航"));
         mData.add(new Icon(R.drawable.gjhf,"轨迹回放"));
         mData.add(new Icon(R.drawable.gkxx,"工况信息"));
-        mData.add(new Icon(R.drawable.bbtj,"报表统计"));
-       /* mData.add(new Icon(R.drawable.yjcl,"样机车辆"));
-        mData.add(new Icon(R.drawable.gpsyc,"GPS异常"));
-        mData.add(new Icon(R.drawable.scxx,"锁车信息"));
-        mData.add(new Icon(R.drawable.bytx,"保养提醒"));*/
+        mData.add(new Icon(R.drawable.bbtj,"工作时间报表"));
+        mData.add(new Icon(R.drawable.gzsj,"日工作时间"));
         mData.add(new Icon(R.drawable.sbxx,"设备信息"));
-        /*mData.add(new Icon(R.drawable.yycl,"预约车辆"));
-        mData.add(new Icon(R.drawable.jk,"遥控设备"));*/
         mData.add(new Icon(R.drawable.bjxx,"报警信息"));
         if(sp.getRoleID().equals("1")) {
+            mData.add(new Icon(R.drawable.lxr,"联系人"));
             mData.add(new Icon(R.drawable.yyzx, "运营中心"));
-            /*mData.add(new Icon(0, ""));
-            mData.add(new Icon(0, ""));*/
-        }else {
             mData.add(new Icon(0, ""));
+            mData.add(new Icon(0, ""));
+        }else {
         }
-
 
         adapter=new AdapterUtil<Icon>(mData,R.layout.item_grid_icon) {
             @Override
             public void bindView(ViewHolder holder, Icon obj) {
                 holder.setImageResource(R.id.img_icon,obj.getmId());
                 holder.setText(R.id.txt_icon,obj.getmName());
-                //holder.setVisibility(R.id.view_icon,View.VISIBLE);
             }
         };
 
@@ -120,55 +113,35 @@ public class QuerySy extends Fragment implements View.OnClickListener {
                         startActivity(it3);
                         break;
                     case 4:
-                        //报表统计
+                        //工作时间报表
                         Intent it4=new Intent(context,QuerySyBbtj.class);
                         startActivity(it4);
                         break;
-                    /*case 5:
-                        //样机车辆
-                        Intent it5=new Intent(context,QuerySyYjcl.class);
-                        startActivity(it5);
-                        break;
-                    case 6:
-                        //GPS异常
-                        Intent it6=new Intent(context,QuerySyGpsyc.class);
-                        startActivity(it6);
-                        break;
-                    case 7:
-                        //锁车信息
-                        Intent it7=new Intent(context,QuerySyScxx.class);
+                    case 5:
+                        //日工作时间
+                        Intent it7=new Intent(context,QuerySyGzsj.class);
                         startActivity(it7);
                         break;
-                    case 8:
-                        //保养提醒
-                        Intent it8=new Intent(context,QuerySyBytx.class);
-                        startActivity(it8);
-                        break;*/
-                    case 5:
-                        //设备信息
-                        Intent it9=new Intent(context,QuerySySbxx.class);
-                        startActivity(it9);
-                        break;
-                    /*case 10:
-                        //预约车辆
-                        Intent it10=new Intent(context,QuerySyYycl.class);
-                        startActivity(it10);
-                        break;
-                    case 11:
-                        //遥控设备
-                        Intent it11=new Intent(context,QuerySyRemote.class);
-                        startActivity(it11);
-                        break;*/
                     case 6:
-                        //报警设备
-                        Intent it12=new Intent(context,QuerySyBjxx.class);
-                        startActivity(it12);
+                        //设备信息
+                        Intent it5=new Intent(context,QuerySySbxx.class);
+                        startActivity(it5);
                         break;
                     case 7:
+                        //报警设备
+                        Intent it6=new Intent(context,QuerySyBjxx.class);
+                        startActivity(it6);
+                        break;
+                    case 8:
+                        //联系人管理
+                        Intent it8=new Intent(context,LinkMan.class);
+                        startActivity(it8);
+                        break;
+                    case 9:
                         //运营中心
                         if(sp.getRoleID().equals("1")) {
-                            Intent it13=new Intent(context,OperatingCenter.class);
-                            startActivity(it13);
+                            Intent it10=new Intent(context,OperatingCenter.class);
+                            startActivity(it10);
                         }
                         else {}
 

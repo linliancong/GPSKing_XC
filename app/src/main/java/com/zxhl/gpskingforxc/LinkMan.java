@@ -15,10 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.zxhl.util.Constants;
 import com.zxhl.util.ImgTxtLayout;
-import com.zxhl.util.SharedPreferenceUtils;
 import com.zxhl.util.StatusBarUtil;
 import com.zxhl.util.WebServiceUtils;
 
@@ -33,30 +30,24 @@ import java.util.List;
  * Created by Administrator on 2018/3/13.
  */
 
-public class AddUser extends StatusBarUtil implements View.OnClickListener,TextWatcher{
+public class LinkMan extends StatusBarUtil implements View.OnClickListener,TextWatcher{
 
     private ImgTxtLayout back;
     private TextView name;
-    private TextView username;
-    private TextView pwd;
-    private TextView pwd2;
-    private Spinner group;
-    private Spinner role;
+    private TextView phone;
+    private TextView email;
+    private Spinner agent;
 
     private Button add;
 
     private Context context;
     private int state=0;
 
-    private ArrayAdapter<String> adapter=null;
-    private ArrayAdapter<String> adapter2=null;
-    private List<String> roleID=new ArrayList<>();
-    private List<String> roleName=new ArrayList<>();
-    private List<String> groupID=new ArrayList<>();
-    private List<String> groupName=new ArrayList<>();
+    private ArrayAdapter<String> adapter =null;
+    private List<String> franchiserID =new ArrayList<>();
+    private List<String> franchiserName =new ArrayList<>();
 
-    private int mRolePosition=0;
-    private int mGroupPosition=0;
+    private int mFranchiserPosition =0;
 
     Handler handler=new Handler(){
         @Override
@@ -64,41 +55,22 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
             switch (msg.what){
                 case 0x001:
                     if(state==1){
-                        Toast.makeText(context,"注册成功",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,"添加联系人成功",Toast.LENGTH_SHORT).show();
                         finish();
                     }else {
-                        Toast.makeText(context,"注册失败，请稍后重试",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context,"添加联系人失败，请稍后重试",Toast.LENGTH_SHORT).show();
                     }
                     break;
-                case 0x002:
-                    adapter=new ArrayAdapter<String>(context, R.layout.simple_spinner_item,R.id.tv_spinner,roleName);
+                case 0x003:
+                    adapter =new ArrayAdapter<String>(context, R.layout.simple_spinner_item,R.id.tv_spinner, franchiserName);
                     adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
 
-                    role.setAdapter(adapter);
+                    agent.setAdapter(adapter);
 
-                    role.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    agent.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                         @Override
                         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            mRolePosition=position;
-
-                        }
-
-                        @Override
-                        public void onNothingSelected(AdapterView<?> parent) {
-
-                        }
-                    });
-                    break;
-                case 0x003:
-                    adapter2=new ArrayAdapter<String>(context, R.layout.simple_spinner_item,R.id.tv_spinner,groupName);
-                    adapter2.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
-
-                    group.setAdapter(adapter2);
-
-                    group.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                        @Override
-                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                            mGroupPosition=position;
+                            mFranchiserPosition =position;
 
                         }
 
@@ -119,8 +91,7 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.opc_user);
 
-        getRole();
-        getGroup();
+        getFranchiser();
 
         init();
 
@@ -128,19 +99,17 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.opc_user;
+        return R.layout.query_linkman;
     }
 
     public void init(){
-        context=AddUser.this;
+        context=LinkMan.this;
 
         back=findViewById(R.id.back);
         name =findViewById(R.id.name);
-        username =findViewById(R.id.username);
-        pwd =findViewById(R.id.pwd);
-        pwd2 =findViewById(R.id.pwd2);
-        group =findViewById(R.id.group);
-        role =findViewById(R.id.role);
+        phone =findViewById(R.id.phone);
+        email =findViewById(R.id.email);
+        agent =findViewById(R.id.agent);
 
         add=findViewById(R.id.add);
 
@@ -153,9 +122,8 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
         add.setOnClickListener(this);
 
         name.addTextChangedListener(this);
-        username.addTextChangedListener(this);
-        pwd.addTextChangedListener(this);
-        pwd2.addTextChangedListener(this);
+        phone.addTextChangedListener(this);
+        email.addTextChangedListener(this);
 
 
     }
@@ -164,14 +132,12 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.add:
-                if (pwd.getText().toString().equals(pwd2.getText().toString())) {
                     HashMap<String, String> proper = new HashMap<String, String>();
-                    proper.put("OperatorName", name.getText().toString());
-                    proper.put("NickName", username.getText().toString());
-                    proper.put("Pwd", pwd2.getText().toString());
-                    proper.put("GroupID", groupID.get(mGroupPosition));
-                    proper.put("RoleID", roleID.get(mRolePosition));
-                    WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "AddOperatorInfo", proper, new WebServiceUtils.WebServiceCallBack() {
+                    proper.put("LinkManName", name.getText().toString());
+                    proper.put("LinkManMobile", phone.getText().toString());
+                    proper.put("Email", email.getText().toString());
+                    proper.put("FranchiserID", franchiserID.get(mFranchiserPosition));
+                    WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "AddLinkManInfo", proper, new WebServiceUtils.WebServiceCallBack() {
                         @Override
                         public void callBack(SoapObject result) {
                             if (result != null) {
@@ -184,9 +150,7 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
                             handler.sendEmptyMessage(0x001);
                         }
                     });
-                }else {
-                    Toast.makeText(context,"两次输入的密码不匹配，请重新输入",Toast.LENGTH_SHORT).show();
-                }
+
                 break;
         }
 
@@ -206,16 +170,15 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
 
     @Override
     public void afterTextChanged(Editable s) {
-        if(name.getText().toString().length()>0&& username.getText().toString().length()>0&& pwd.getText().toString().length()>0
-                && pwd2.getText().toString().length()>0){
+        if(name.getText().toString().length()>0&& phone.getText().toString().length()>0&& email.getText().toString().length()>0){
             add.setEnabled(true);
         }
 
     }
 
-    public void getRole(){
+    public void getFranchiser(){
         HashMap<String, String> proper = new HashMap<String, String>();
-        WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetAPPRole", proper, new WebServiceUtils.WebServiceCallBack() {
+        WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetAPPAgent", proper, new WebServiceUtils.WebServiceCallBack() {
             @Override
             public void callBack(SoapObject result) {
                 if (result != null) {
@@ -224,29 +187,8 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
                     if (list != null) {
                         for (int i=0;i<list.size();i++) {
                             String[] str=list.get(i).split(":");
-                            roleID.add(str[0]);
-                            roleName.add(str[1]);
-                        }
-                        handler.sendEmptyMessage(0x002);
-                    }
-                }
-            }
-        });
-    }
-
-    public void getGroup(){
-        HashMap<String, String> proper = new HashMap<String, String>();
-        WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetAPPGroup", proper, new WebServiceUtils.WebServiceCallBack() {
-            @Override
-            public void callBack(SoapObject result) {
-                if (result != null) {
-                    List<String> list = new ArrayList<String>();
-                    list = parases(result);
-                    if (list != null) {
-                        for (int i=0;i<list.size();i++) {
-                            String[] str=list.get(i).split(":");
-                            groupID.add(str[0]);
-                            groupName.add(str[1]);
+                            franchiserID.add(str[0]);
+                            franchiserName.add(str[1]);
                         }
                         handler.sendEmptyMessage(0x003);
                     }

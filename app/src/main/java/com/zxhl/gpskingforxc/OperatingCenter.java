@@ -90,7 +90,7 @@ public class OperatingCenter extends StatusBarUtil implements View.OnClickListen
                 break;
             case R.id.opc_ly_yd:
                 //油电控制
-                Intent it5=new Intent(context,OpcOilEleControl.class);
+                Intent it5=new Intent(context,OpcElectronicFence.class);
                 startActivity(it5);
                 break;
             case R.id.opc_ly_dssc:
@@ -104,7 +104,7 @@ public class OperatingCenter extends StatusBarUtil implements View.OnClickListen
                 startActivity(it7);
                 break;
             case R.id.opc_ly_add:
-                //指令下发记录
+                //注册用户
                 Intent it8=new Intent(context,AddUser.class);
                 startActivity(it8);
                 break;

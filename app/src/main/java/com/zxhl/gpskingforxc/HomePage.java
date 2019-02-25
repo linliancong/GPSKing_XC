@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.zxhl.util.ApkVersionUtils;
 import com.zxhl.util.AppManager;
 import com.zxhl.util.CheckPermissionsActivity;
+import com.zxhl.util.Constants;
 import com.zxhl.util.DownloadService;
 import com.zxhl.util.MyFragmentPagerAdapter;
 import com.zxhl.util.NetWorkBroadcastReceiver;
@@ -35,6 +36,8 @@ import org.ksoap2.serialization.SoapObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2017/11/24.
@@ -73,6 +76,7 @@ public class HomePage extends CheckPermissionsActivity implements RadioGroup.OnC
     private AlertDialog alert;
     private AlertDialog.Builder builder;
     private LayoutInflater inflater;
+    private String mContent;
 
     private NotificationManager manager;
 
@@ -84,6 +88,18 @@ public class HomePage extends CheckPermissionsActivity implements RadioGroup.OnC
                     if(verCode_s!=0) {
                         if(verCode_s > verCode) {
                             View view = getAlert(R.layout.ad_update);
+                            TextView content=view.findViewById(R.id.ad_txt_content);
+                            //去除空格换行
+                            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+                            Matcher m = p.matcher(mContent);
+                            mContent = m.replaceAll("");
+
+                            String[] contents=mContent.split("zxhl");
+                            mContent="";
+                            for (int i=0;i<contents.length;i++){
+                                mContent+=contents[i]+"\n";
+                            }
+                            content.setText(mContent);
                             view.findViewById(R.id.ad_btn_update_cancel).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -140,12 +156,15 @@ public class HomePage extends CheckPermissionsActivity implements RadioGroup.OnC
 
         verCode= ApkVersionUtils.getVerCode(this);
         HashMap<String,String> proper=new HashMap<String,String>();
-        WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetVerCode", proper, new WebServiceUtils.WebServiceCallBack() {
+        proper.put("APPName", Constants.APPName);
+        WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetVerCodeInfo", proper, new WebServiceUtils.WebServiceCallBack() {
             @Override
             public void callBack(SoapObject result) {
                 if(result!=null) {
                     List<String> list = new ArrayList<String>();
-                    Integer it=new Integer(result.getProperty(0).toString());
+                    SoapObject soapObject= (SoapObject) result.getProperty(0);
+                    Integer it=new Integer(soapObject.getProperty(0).toString());
+                    mContent =soapObject.getProperty(1).toString();
                     verCode_s =it.intValue();
                 }
                 else

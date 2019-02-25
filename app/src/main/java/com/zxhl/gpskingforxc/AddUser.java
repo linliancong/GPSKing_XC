@@ -16,9 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.zxhl.util.Constants;
 import com.zxhl.util.ImgTxtLayout;
-import com.zxhl.util.SharedPreferenceUtils;
 import com.zxhl.util.StatusBarUtil;
 import com.zxhl.util.WebServiceUtils;
 
@@ -136,10 +134,10 @@ public class AddUser extends StatusBarUtil implements View.OnClickListener,TextW
 
         back=findViewById(R.id.back);
         name =findViewById(R.id.name);
-        username =findViewById(R.id.username);
-        pwd =findViewById(R.id.pwd);
+        username =findViewById(R.id.phone);
+        pwd =findViewById(R.id.email);
         pwd2 =findViewById(R.id.pwd2);
-        group =findViewById(R.id.group);
+        group =findViewById(R.id.agent);
         role =findViewById(R.id.role);
 
         add=findViewById(R.id.add);

@@ -279,9 +279,16 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.zxhl.gpskingforxc.OpcOilEleControl">
+        <activity android:name="com.zxhl.gpskingforxc.OpcElectronicFence">
             <intent-filter>
-                <action android:name="android.intent.action.OPCOILELECONTROL"/>
+                <action android:name="android.intent.action.OPCELECTRONICFENCE"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zxhl.gpskingforxc.OpcEleFLocation">
+            <intent-filter>
+                <action android:name="android.intent.action.OPCELEFLOCATION"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
@@ -303,6 +310,20 @@
         <activity android:name="com.zxhl.gpskingforxc.AddUser">
             <intent-filter>
                 <action android:name="android.intent.action.ADDUSER"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zxhl.gpskingforxc.LinkMan">
+            <intent-filter>
+                <action android:name="android.intent.action.LIKMAN"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.zxhl.gpskingforxc.QuerySyGzsj">
+            <intent-filter>
+                <action android:name="android.intent.action.QUERYSYGZSJ"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>

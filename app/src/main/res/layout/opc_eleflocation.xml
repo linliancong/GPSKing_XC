@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/opc_imgtxt_title"
             android:layout_centerVertical="true"
-            android:text="实时定位"
+            android:text="选择位置"
             android:textSize="18sp"
             android:textColor="@color/black"
             />
@@ -87,6 +87,7 @@
             android:layout_toLeftOf="@+id/opc_btn_get"
             android:layout_centerVertical="true"
             android:layout_marginRight="20dp"
+            android:visibility="gone"
             />
 
         <Button
@@ -97,10 +98,11 @@
             android:layout_width="50dp"
             android:layout_height="26dp"
             android:background="@drawable/me_sy_btn"
-            android:text="查询"
+            android:text="确定"
             android:textColor="@color/bg_white"
             android:textSize="12sp"
-            android:enabled="false"
+            android:enabled="true"
+            android:visibility="visible"
             />
 
         <View
@@ -159,6 +161,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
+            android:visibility="gone"
             >
             <RadioButton
                 android:id="@+id/loction_gaodemap"

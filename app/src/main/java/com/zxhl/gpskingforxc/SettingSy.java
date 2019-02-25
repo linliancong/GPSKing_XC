@@ -30,6 +30,8 @@ import org.ksoap2.serialization.SoapObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2017/12/1.
@@ -60,6 +62,8 @@ public class SettingSy extends Fragment implements View.OnClickListener {
 
     //服务所需的变量
     private Intent intent=null;
+
+    private String mContent;
 
     public SettingSy(){
     }
@@ -93,6 +97,18 @@ public class SettingSy extends Fragment implements View.OnClickListener {
                             Toast.makeText(context, "已是最新版本", Toast.LENGTH_SHORT).show();
                         } else {
                             View view = getAlert(R.layout.ad_update);
+                            TextView content=view.findViewById(R.id.ad_txt_content);
+                            //去除空格换行
+                            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+                            Matcher m = p.matcher(mContent);
+                            mContent = m.replaceAll("");
+
+                            String[] contents=mContent.split("zxhl");
+                            mContent="";
+                            for (int i=0;i<contents.length;i++){
+                                mContent+=contents[i]+"\n";
+                            }
+                            content.setText(mContent);
                             view.findViewById(R.id.ad_btn_update_cancel).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -159,13 +175,15 @@ public class SettingSy extends Fragment implements View.OnClickListener {
             case R.id.setting_ly_jcgx:
                 HashMap<String,String> proper=new HashMap<String,String>();
                 proper.put("APPName",Constants.APPName);
-                WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetVerCode", proper, new WebServiceUtils.WebServiceCallBack() {
+                WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetVerCodeInfo", proper, new WebServiceUtils.WebServiceCallBack() {
                     @Override
                     public void callBack(SoapObject result) {
                         if(result!=null) {
                             List<String> list = new ArrayList<String>();
-                            Integer it = new Integer(result.getProperty(0).toString());
+                            SoapObject soapObject= (SoapObject) result.getProperty(0);
+                            Integer it = new Integer(soapObject.getProperty(0).toString());
                             verCode_s = it.intValue();
+                            mContent =soapObject.getProperty(1).toString();
                             handler.sendEmptyMessage(0x0004);
                         }
                         else{

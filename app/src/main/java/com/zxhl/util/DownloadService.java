@@ -253,17 +253,17 @@ public class DownloadService extends Service{
             mAudio.setRingerMode(status);
             // 由于没有在Activity环境下启动Activity,设置下面的标签；给目标应用一个临时的授权。
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            Uri uri= FileProvider.getUriForFile(this,"com.zxhl.gpsking",new File(file,"GPSKing.apk"));
+            Uri uri= FileProvider.getUriForFile(this,"com.zxhl.gpskingforxc",new File(file,"GPSKingForXC.apk"));
             intent.setData(uri);
         }
         else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
             // 由于没有在Activity环境下启动Activity,设置下面的标签；给目标应用一个临时的授权。
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            Uri uri= FileProvider.getUriForFile(this,"com.zxhl.gpsking",new File(file,"GPSKing.apk"));
+            Uri uri= FileProvider.getUriForFile(this,"com.zxhl.gpskingforxc",new File(file,"GPSKingForXC.apk"));
             intent.setDataAndType(uri,"application/vnd.android.package-archive");
         }
         else {
-            intent.setDataAndType(Uri.fromFile(new File(file, "GPSKing.apk")), "application/vnd.android.package-archive");
+            intent.setDataAndType(Uri.fromFile(new File(file, "GPSKingForXC.apk")), "application/vnd.android.package-archive");
         }
         PendingIntent pendingIntent=PendingIntent.getActivity(getApplicationContext(),0,intent,0);
         bd.setContentIntent(pendingIntent);

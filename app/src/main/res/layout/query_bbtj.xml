@@ -27,7 +27,7 @@
             zxhl:iconDrawablePress="@mipmap/cs_ic_back_blue_press"
             zxhl:spacing="10dp"
             zxhl:style="iconLeft"
-            zxhl:text="报表统计"
+            zxhl:text="工作时间报表"
             zxhl:textSize="18"
             zxhl:textColor="@color/black"
             />
@@ -135,13 +135,139 @@
 
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/bbtj_visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        >
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/sy_home_shap"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昨日工作"
+                android:textSize="14sp"
+                android:textColor="@color/bg_white"
+                />
+            <TextView
+                android:id="@+id/bbtj_Yesterday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="18sp"
+                android:textColor="@color/bg_white"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(时/h)"
+                android:textSize="12sp"
+                android:textColor="@color/bg_white"
+                android:layout_marginTop="5dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/sy_home_shap2"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="月累计"
+                android:textSize="14sp"
+                android:textColor="@color/bg_white"
+                />
+            <TextView
+                android:id="@+id/bbtj_MonthTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="18sp"
+                android:textColor="@color/bg_white"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(时/h)"
+                android:textSize="12sp"
+                android:textColor="@color/bg_white"
+                android:layout_marginTop="5dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/sy_home_shap3"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="10dp"
+
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="年累计"
+                android:textSize="14sp"
+                android:textColor="@color/bg_white"
+                />
+            <TextView
+                android:id="@+id/bbtj_YearTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="18sp"
+                android:textColor="@color/bg_white"
+                android:layout_marginTop="10dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(时/h)"
+                android:textSize="12sp"
+                android:textColor="@color/bg_white"
+                android:layout_marginTop="5dp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
     <lecho.lib.hellocharts.view.LineChartView
         android:id="@+id/bbtj_chart"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/setting_wtfk_text_normal"

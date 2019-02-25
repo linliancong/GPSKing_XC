@@ -1,6 +1,7 @@
 package com.zxhl.util;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -131,6 +132,19 @@ public abstract class AdapterUtil<T> extends BaseAdapter {
             if(view instanceof TextView)
             {
                 ((TextView) view).setText(text);
+            }
+            return this;
+        }
+
+        /**
+         * 设置文字
+         */
+        public ViewHolder setTextColor(int id,String color)
+        {
+            View view=getView(id);
+            if(view instanceof TextView)
+            {
+                ((TextView) view).setTextColor(Color.parseColor(color));
             }
             return this;
         }

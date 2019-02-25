@@ -13,7 +13,7 @@ public class Constants {
     public static final String SAVE_USER="save_user_xc";       //保存用户信息的文件名
     public static final String DATABASE="TXServer";         //连接的数据库名称
     public static final String APPName="GPSKing_XC";         //APP名称
-    public static final String PHOTO_SAVE="http://117.28.255.123:9999/WebServiceClient/UpLoadPhotoServlet"; //头像保存deServlet
+    public static final String PHOTO_SAVE="http://117.28.255.123:8080/WebServiceClient/UpLoadPhotoServlet"; //头像保存deServlet
     public static final String PHOTO_PATH="http://117.28.255.123:9999/APPWebService/Image/";//图片在服务器的路径
     public static final String APK_PATH="http://117.28.255.123:9999/APPWebService/GPSKing_XC/GPSKingForXC.apk";//APP在服务器的路径
 

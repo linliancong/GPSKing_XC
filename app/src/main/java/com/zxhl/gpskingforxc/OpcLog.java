@@ -35,6 +35,7 @@ import com.zxhl.util.WebServiceUtils;
 
 import org.ksoap2.serialization.SoapObject;
 
+import java.lang.annotation.ElementType;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -395,23 +396,23 @@ public class OpcLog extends StatusBarUtil implements View.OnClickListener,TextWa
      *@param result
      * @return
      * */
-    private List<List<String>> parase(SoapObject result){
-        List<List<String>> lists=new ArrayList<>();
+    private List<List<String>> parase(SoapObject result) {
+        List<List<String>> lists = new ArrayList<>();
         List<String> list;
-        String type="";
-        String[] types=new String[]{};
-        SoapObject soap= (SoapObject) result.getProperty(0);
-        if(soap==null) {
+        String type = "";
+        String[] types = new String[]{};
+        SoapObject soap = (SoapObject) result.getProperty(0);
+        if (soap == null) {
             return null;
         }
-        for (int i=0;i<soap.getPropertyCount();i++){
-            SoapObject soapObject= (SoapObject) soap.getProperty(i);
-            list=new ArrayList<>();
+        for (int i = 0; i < soap.getPropertyCount(); i++) {
+            SoapObject soapObject = (SoapObject) soap.getProperty(i);
+            list = new ArrayList<>();
             list.add(soapObject.getProperty(0).toString());
             list.add(soapObject.getProperty(1).toString());
             list.add(soapObject.getProperty(2).toString());
-            types=soapObject.getProperty(3).toString().split(",");
-            if(types.length==1) {
+            types = soapObject.getProperty(3).toString().split(",");
+            if (types.length == 1) {
                 switch (types[0]) {
                     case "锁车监控0":
                         type = "全部解锁";
@@ -450,16 +451,32 @@ public class OpcLog extends StatusBarUtil implements View.OnClickListener,TextWa
                         type = "车辆位置查询";
                         break;
                 }
-            }
-            else
-            {
-                switch (types[1]) {
-                    case "0":
-                        type="取消定时锁车";
-                        break;
-                    case "1":
-                        type="设置定时锁车";
-                        break;
+            } else {
+                if (types[0].equals("电子围栏指令0")) {
+                    switch (types[1]) {
+                        case "0":
+                            //暂时屏蔽
+                            type = "进区域电子围栏";
+                            //type = "设置电子围栏";
+                            break;
+                        case "1":
+                            //暂时屏蔽
+                            type = "出区域电子围栏";
+                            //type = "设置电子围栏";
+                            break;
+                        case "2":
+                            type = "解除电子围栏";
+                            break;
+                    }
+                } else {
+                    switch (types[1]) {
+                        case "0":
+                            type = "取消定时锁车";
+                            break;
+                        case "1":
+                            type = "设置定时锁车";
+                            break;
+                    }
                 }
             }
             list.add(type);

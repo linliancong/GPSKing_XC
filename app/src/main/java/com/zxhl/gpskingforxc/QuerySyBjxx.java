@@ -84,6 +84,8 @@ public class QuerySyBjxx extends StatusBarUtil implements View.OnClickListener,T
     private RadioButton rb_wcl;
     private RadioButton rb_ycl;
 
+    private int state=0;
+
 
     Handler handler=new Handler(){
         @Override
@@ -111,6 +113,7 @@ public class QuerySyBjxx extends StatusBarUtil implements View.OnClickListener,T
                     anima.stop();
                     img.setVisibility(View.GONE);
                     text.setVisibility(View.GONE);
+                    state=1;
                     break;
                 case 0x003:
                     adapter=new ArrayAdapter<String>(context,R.layout.simple_autoedit_dropdown_item,R.id.tv_spinner,autoVehLic);
@@ -204,12 +207,17 @@ public class QuerySyBjxx extends StatusBarUtil implements View.OnClickListener,T
             case R.id.bjxx_btn_get:
                 ShowKeyboard.hideKeyboard(vehicle);
                 if(vehicle.getText().length()==0) {
+                    state=0;
                     list.setVisibility(View.GONE);
                     bjxx_ly_sche.setVisibility(View.VISIBLE);
                     anima.start();
                     getVehicleAlarmInfo();
                 }else {
-                    getAlarmInfoByVeh();
+                    if(state==1) {
+                        getAlarmInfoByVeh();
+                    }else {
+                        Toast.makeText(context,"正在查询中，请稍后...",Toast.LENGTH_SHORT).show();
+                    }
                 }
                 title.setVisibility(View.VISIBLE);
                 search.setVisibility(View.VISIBLE);
@@ -330,13 +338,29 @@ public class QuerySyBjxx extends StatusBarUtil implements View.OnClickListener,T
     private void getAlarmInfoByType(String type){
         infotype=new ArrayList<>();
         ArrayList<String> list1=new ArrayList<>();
-        if(type.equals("0")){
+        if(type.equals("0")&&vehicle.getText().length()==0){
             infotype=info;
-        }else {
+        }else if(type.equals("0")&&vehicle.getText().length()!=0){
             for (int i = 0; i < info.size(); i++) {
-                if (info.get(i).get(8).equals(type)) {
+                if (info.get(i).get(4).equalsIgnoreCase(vehicle.getText().toString())) {
                     list1 = (ArrayList<String>) info.get(i);
                     infotype.add(list1);
+                }
+            }
+        } else {
+            if (vehicle.getText().length() != 0) {
+                for (int i = 0; i < info.size(); i++) {
+                    if (info.get(i).get(8).equals(type) && info.get(i).get(4).equalsIgnoreCase(vehicle.getText().toString())) {
+                        list1 = (ArrayList<String>) info.get(i);
+                        infotype.add(list1);
+                    }
+                }
+            }else {
+                for (int i = 0; i < info.size(); i++) {
+                    if (info.get(i).get(8).equals(type)) {
+                        list1 = (ArrayList<String>) info.get(i);
+                        infotype.add(list1);
+                    }
                 }
             }
         }

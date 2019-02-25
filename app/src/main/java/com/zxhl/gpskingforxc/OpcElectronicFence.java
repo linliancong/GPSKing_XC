@@ -16,12 +16,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.autonavi.amap.mapcore.Convert;
 import com.zxhl.entity.Logs;
 import com.zxhl.util.AdapterUtil;
 import com.zxhl.util.Constants;
@@ -33,7 +36,9 @@ import com.zxhl.util.WebServiceUtils;
 
 import org.ksoap2.serialization.SoapObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -47,10 +52,9 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
     private AutoCompleteTextView vehicle;
     private TextView veh_info;
     private RelativeLayout visble;
-    private LinearLayout yjdyd;
-    private LinearLayout ejdyd;
-    private LinearLayout yjhfyd;
-    private LinearLayout ejhfyd;
+    private LinearLayout jqy;
+    private LinearLayout cqy;
+    private LinearLayout jc;
     private ImageView opc_cancel;
 
     private ListView list;
@@ -58,12 +62,17 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
     private ArrayList<Logs> data;
     private AdapterUtil<Logs> adapter_log;
 
-    private Button oilelecontrol_js;
-    private Button oilelecontrol_jk;
-    private Button oilelecontrol_sc;
-    private Button oilelecontrol_ssdw;
-    private Button oilelecontrol_yjgl;
-    private Button oilelecontrol_log;
+    private Button electronicfence_js;
+    private Button electronicfence_jk;
+    private Button electronicfence_sc;
+    private Button electronicfence_ssdw;
+    private Button electronicfence_yjgl;
+    private Button electronicfence_log;
+
+    private Button electronicfence_location;
+    private EditText electronicfence_km;
+    private String Lon="0.0000";
+    private String Lat="0.0000";
 
     private SharedPreferenceUtils sp;
     private Context context;
@@ -84,19 +93,20 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
     private int pression=0;
     private int length=0;
 
-    private RelativeLayout oilelecontrol_ly_sche;
-    private ImageView oilelecontrol_img_sche;
+    private RelativeLayout electronicfence_ly_sche;
+    private ImageView electronicfence_img_sche;
     private AnimationDrawable anima;
 
+    private SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case 0x404:
-                    oilelecontrol_ly_sche.setVisibility(View.GONE);
+                    electronicfence_ly_sche.setVisibility(View.GONE);
                     anima.stop();
-                    data.add(new Logs("服务器有点问题，我们正在全力修复！"));
+                    data.add(new Logs("【"+sf.format(new Date())+"】："+"服务器有点问题，我们正在全力修复！"));
                     adapter_log.notifyDataSetChanged();
                     break;
                 case 0x001:
@@ -104,33 +114,33 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
                     vehicle.setAdapter(adapter);
                     break;
                 case 0x002:
-                    oilelecontrol_ly_sche.setVisibility(View.GONE);
+                    electronicfence_ly_sche.setVisibility(View.GONE);
                     anima.stop();
                     visble.setVisibility(View.VISIBLE);
                     scroll_visble.setVisibility(View.VISIBLE);
                     veh_info.setText("【"+vehicle.getText()+"】 车台在线，可执行以下操作：");
                     break;
                 case 0x003:
-                    oilelecontrol_ly_sche.setVisibility(View.GONE);
+                    electronicfence_ly_sche.setVisibility(View.GONE);
                     anima.stop();
                     visble.setVisibility(View.GONE);
                     veh_info.setText("没有找到 【"+vehicle.getText()+"】 车台的在线信息，可能原因：\n1、该车台不在线。\n2、您输入的车牌号有误。\n3、您没有权限操作该车台。");
                     break;
                 case 0x004:
-                    oilelecontrol_ly_sche.setVisibility(View.GONE);
+                    electronicfence_ly_sche.setVisibility(View.GONE);
                     anima.stop();
-                    if(remoteLock.equals("1")||remoteLock.equals("2")) {
-                        data.add(new Logs("【"+vehicle.getText()+"】：下发 【" + command + "】指令成功！"));
+                    if(remoteLock.equals("1")) {
+                        data.add(new Logs("【"+sf.format(new Date())+"】："+"【"+vehicle.getText()+"】下发【" + command + "】指令成功！"));
                         adapter_log.notifyDataSetChanged();
                     }else{
-                        data.add(new Logs("【"+vehicle.getText()+"】：下发 【" + command + "】指令失败！失败原因："+error));
+                        data.add(new Logs("【"+sf.format(new Date())+"】："+"【"+vehicle.getText()+"】下发【" + command + "】指令失败！失败原因："+error));
                         adapter_log.notifyDataSetChanged();
                     }
                     break;
                 case 0x005:
-                    oilelecontrol_ly_sche.setVisibility(View.GONE);
+                    electronicfence_ly_sche.setVisibility(View.GONE);
                     anima.stop();
-                    data.add(new Logs("【"+vehicle.getText()+"】：下发 【" + command + "】指令失败！请稍后再试。"));
+                    data.add(new Logs("【"+sf.format(new Date())+"】："+"【"+vehicle.getText()+"】下发【" + command + "】指令失败！请稍后再试。"));
                     adapter_log.notifyDataSetChanged();
                     break;
             }
@@ -168,20 +178,21 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
     }
 
     public void init(){
-        back=findViewById(R.id.oilelecontrol_back);
-        vehicle=findViewById(R.id.oilelecontrol_vehicle);
-        veh_info =findViewById(R.id.oilelecontrol_txt_veh);
-        visble=findViewById(R.id.oilelecontrol_rl_opc);
-        yjdyd =findViewById(R.id.oilelecontrol_ly_yjdyd);
-        ejdyd =findViewById(R.id.oilelecontrol_ly_ejdyd);
-        yjhfyd =findViewById(R.id.oilelecontrol_ly_yjhfyd);
-        ejhfyd =findViewById(R.id.oilelecontrol_ly_ejhfyd);
-        oilelecontrol_js=findViewById(R.id.oilelecontrol_js);
-        oilelecontrol_jk=findViewById(R.id.oilelecontrol_jk);
-        oilelecontrol_sc =findViewById(R.id.oilelecontrol_sc);
-        oilelecontrol_ssdw=findViewById(R.id.oilelecontrol_ssdw);
-        oilelecontrol_yjgl=findViewById(R.id.oilelecontrol_yjgl);
-        oilelecontrol_log=findViewById(R.id.oilelecontrol_log);
+        back=findViewById(R.id.electronicfence_back);
+        vehicle=findViewById(R.id.electronicfence_vehicle);
+        veh_info =findViewById(R.id.electronicfence_txt_veh);
+        visble=findViewById(R.id.electronicfence_rl_opc);
+        jqy =findViewById(R.id.electronicfence_ly_jqy);
+        cqy =findViewById(R.id.electronicfence_ly_cqy);
+        jc =findViewById(R.id.electronicfence_ly_jc);
+        electronicfence_js=findViewById(R.id.electronicfence_js);
+        electronicfence_jk=findViewById(R.id.electronicfence_jk);
+        electronicfence_sc =findViewById(R.id.electronicfence_sc);
+        electronicfence_ssdw=findViewById(R.id.electronicfence_ssdw);
+        electronicfence_yjgl=findViewById(R.id.electronicfence_yjgl);
+        electronicfence_log=findViewById(R.id.electronicfence_log);
+        electronicfence_location=findViewById(R.id.electronicfence_location);
+        electronicfence_km=findViewById(R.id.electronicfence_km);
         opc_cancel=findViewById(R.id.opc_cancel);
         opc_cancel.setVisibility(View.GONE);
         sp=new SharedPreferenceUtils(context, Constants.SAVE_USER);
@@ -200,26 +211,26 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
         list.setAdapter(adapter_log);
         ShowKeyboard.hideKeyboard(vehicle);
 
-        oilelecontrol_ly_sche =findViewById(R.id.oilelecontrol_ly_sche);
-        oilelecontrol_img_sche =findViewById(R.id.oilelecontrol_img_sche);
-        anima= (AnimationDrawable) oilelecontrol_img_sche.getDrawable();
+        electronicfence_ly_sche =findViewById(R.id.electronicfence_ly_sche);
+        electronicfence_img_sche =findViewById(R.id.electronicfence_img_sche);
+        anima= (AnimationDrawable) electronicfence_img_sche.getDrawable();
 
         autoVehLic=new ArrayList<>();
 
         vehicle.addTextChangedListener(this);
         opc_cancel.setOnClickListener(this);
 
-        yjdyd.setOnClickListener(this);
-        ejdyd.setOnClickListener(this);
-        yjhfyd.setOnClickListener(this);
-        ejhfyd.setOnClickListener(this);
+        jqy.setOnClickListener(this);
+        cqy.setOnClickListener(this);
+        jc.setOnClickListener(this);
 
-        oilelecontrol_js.setOnClickListener(this);
-        oilelecontrol_jk.setOnClickListener(this);
-        oilelecontrol_sc.setOnClickListener(this);
-        oilelecontrol_ssdw.setOnClickListener(this);
-        oilelecontrol_yjgl.setOnClickListener(this);
-        oilelecontrol_log.setOnClickListener(this);
+        electronicfence_js.setOnClickListener(this);
+        electronicfence_jk.setOnClickListener(this);
+        electronicfence_sc.setOnClickListener(this);
+        electronicfence_ssdw.setOnClickListener(this);
+        electronicfence_yjgl.setOnClickListener(this);
+        electronicfence_log.setOnClickListener(this);
+        electronicfence_location.setOnClickListener(this);
 
         back.setOnClickListener(new ImgTxtLayout.OnClickListener() {
             @Override
@@ -231,7 +242,7 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
         vehicle.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                oilelecontrol_ly_sche.setVisibility(View.VISIBLE);
+                electronicfence_ly_sche.setVisibility(View.VISIBLE);
                 scroll_visble.setVisibility(View.GONE);
                 anima.start();
                 getVheicleIsOnline();
@@ -244,36 +255,56 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.oilelecontrol_ly_yjdyd:
-                dialog.show();
-                text.setText("确认下发 【一级断油断电】 指令？");
-                type="1";
-                command="一级断油断电";
+            case R.id.electronicfence_ly_jqy:
+                //暂时屏蔽
+                ShowKeyboard.hideKeyboard(electronicfence_km);
+                if(electronicfence_km.getText().toString().length()>0) {
+                    if (Double.valueOf(electronicfence_km.getText().toString()) >= 1.0) {
+                        dialog.show();
+                        text.setText("确认下发 【进区域电子围栏】 指令？");
+                        type = "1";
+                        command = "进区域电子围栏";
+                    } else {
+                        Toast.makeText(context, "范围不能小于1KM", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(context, "范围不能为空", Toast.LENGTH_SHORT).show();
+                }
                 break;
-            case R.id.oilelecontrol_ly_ejdyd:
-               dialog.show();
-                text.setText("确认下发 【二级断油断电】 指令？");
-                type="3";
-                command="二级断油断电";
+            case R.id.electronicfence_ly_cqy:
+                ShowKeyboard.hideKeyboard(electronicfence_km);
+                if(electronicfence_km.getText().toString().length()>0) {
+                    if (Double.valueOf(electronicfence_km.getText().toString()) >= 1.0) {
+                        dialog.show();
+                        text.setText("确认下发 【出区域电子围栏】 指令？");
+                        type = "2";
+                        command = "出区域电子围栏";
+                    } else {
+                        Toast.makeText(context, "范围不能小于1KM", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(context, "范围不能为空", Toast.LENGTH_SHORT).show();
+                }
                 break;
-            case R.id.oilelecontrol_ly_yjhfyd:
+            case R.id.electronicfence_ly_jc:
+                ShowKeyboard.hideKeyboard(electronicfence_km);
                 dialog.show();
-                text.setText("确认下发 【一级恢复油电】 指令？");
-                type="2";
-                command="一级恢复油电";
+                text.setText("确认下发 【解除电子围栏】 指令？");
+                type = "0";
+                command = "解除电子围栏";
                 break;
-            case R.id.oilelecontrol_ly_ejhfyd:
-                dialog.show();
-                text.setText("确认下发 【二级恢复油电】 指令？");
-                type="4";
-                command="二级恢复油电";
+            case R.id.electronicfence_location:
+                Intent intent=new Intent(context,OpcEleFLocation.class);
+                intent.putExtra("VehicleLic",vehicle.getText().toString());
+                intent.putExtra("IsOnline",pression);
+                startActivityForResult(intent,0x001);
                 break;
             case R.id.ad_btn_remotelock_cancel:
                 dialog.dismiss();
                 break;
             case R.id.ad_btn_remotelock_confirm:
                 RemoteControl(type);
-                oilelecontrol_ly_sche.setVisibility(View.VISIBLE);
+                electronicfence_ly_sche.setVisibility(View.VISIBLE);
                 anima.start();
                 dialog.dismiss();
                 break;
@@ -282,7 +313,7 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
                 opc_cancel.setVisibility(View.GONE);
                 break;
             //服务直达
-            case R.id.oilelecontrol_js:
+            case R.id.electronicfence_js:
                 //解锁
                 Intent it1=new Intent(context,OpcUnLock.class);
                 it1.putExtra("VehicleLic",vehicle.getText().toString());
@@ -290,7 +321,7 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
                 startActivity(it1);
                 finish();
                 break;
-            case R.id.oilelecontrol_jk:
+            case R.id.electronicfence_jk:
                 //监控
                 Intent it3=new Intent(context,OpcMonitor.class);
                 it3.putExtra("VehicleLic",vehicle.getText().toString());
@@ -298,7 +329,7 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
                 startActivity(it3);
                 finish();
                 break;
-            case R.id.oilelecontrol_sc:
+            case R.id.electronicfence_sc:
                 //锁车
                 Intent it2=new Intent(context,OpcLock.class);
                 it2.putExtra("VehicleLic",vehicle.getText().toString());
@@ -306,14 +337,14 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
                 startActivity(it2);
                 finish();
                 break;
-            case R.id.oilelecontrol_ssdw:
+            case R.id.electronicfence_ssdw:
                 //实时定位
                 Intent it4=new Intent(context,OpcLocation.class);
                 it4.putExtra("VehicleLic",vehicle.getText().toString());
                 it4.putExtra("IsOnline",pression);
                 startActivity(it4);
                 break;
-            case R.id.oilelecontrol_yjgl:
+            case R.id.electronicfence_yjgl:
                 //样机管理
                 Intent it5=new Intent(context,OpcLockTime.class);
                 it5.putExtra("VehicleLic",vehicle.getText().toString());
@@ -321,7 +352,7 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
                 startActivity(it5);
                 finish();
                 break;
-            case R.id.oilelecontrol_log:
+            case R.id.electronicfence_log:
                 //指令下发记录
                 Intent it6=new Intent(context,OpcLog.class);
                 it6.putExtra("VehicleLic",vehicle.getText().toString());
@@ -330,6 +361,16 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
                 break;
         }
 
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==0x001 && resultCode==0x002){
+            Lon=data.getDoubleExtra("Lon",0)+"";
+            Lat=data.getDoubleExtra("Lat",0)+"";
+        }
     }
 
     //获取车辆列表
@@ -402,22 +443,24 @@ public class OpcElectronicFence extends StatusBarUtil implements View.OnClickLis
         });
     }
 
-    //下发锁车指令
+    //下发电子围栏指令
     public void RemoteControl(String type){
         HashMap<String,String> proper=new HashMap<>();
         proper.put("OperatorID",sp.getOperatorID());
         proper.put("VehicleLic",vehicle.getText().toString());
-        proper.put("OptType",type);
+        proper.put("LockLevel",type);
+        proper.put("Lon",Lon);
+        proper.put("Lat",Lat);
+        proper.put("Km",electronicfence_km.getText().toString());
 
-        WebServiceUtils.callWebService(WebServiceUtils.OperaCenter_URL, "RemoteControlByVehicleLic", proper, new WebServiceUtils.WebServiceCallBack() {
+        WebServiceUtils.callWebService(WebServiceUtils.OperaCenter_URL2, "ElectronicFence", proper, new WebServiceUtils.WebServiceCallBack() {
             @Override
             public void callBack(SoapObject result) {
                 if(result!=null){
                     List<String> list=new ArrayList<String>();
                     SoapObject soapObject= (SoapObject) result.getProperty(0);
                     if(soapObject!=null){
-                        //解锁车、监控：LockResult
-                        remoteLock=soapObject.getProperty("controlState").toString();
+                        remoteLock=soapObject.getProperty("LockResult").toString();
                         error=soapObject.getProperty("error").toString();
                         handler.sendEmptyMessage(0x004);
                     }

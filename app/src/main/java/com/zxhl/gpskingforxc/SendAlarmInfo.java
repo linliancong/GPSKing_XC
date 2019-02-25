@@ -76,6 +76,8 @@ public class SendAlarmInfo extends StatusBarUtil implements View.OnClickListener
     private SharedPreferenceUtils sp;
     private int tag=-1;
     private Intent intent;
+    private int SMSSuccess=0;
+    private int EmailSuccess=0;
 
     Handler handler=new Handler(){
         @Override
@@ -84,15 +86,21 @@ public class SendAlarmInfo extends StatusBarUtil implements View.OnClickListener
                 case 0x001:
                     break;
                 case 0x002:
-                    Toast.makeText(context,"邮件发送成功",Toast.LENGTH_SHORT).show();
-                    saveAlarmInfo();
+                    if(EmailSuccess==0) {
+                        EmailSuccess=1;
+                        Toast.makeText(context,"邮件发送成功",Toast.LENGTH_SHORT).show();
+                        saveAlarmInfo();
+                    }
                     break;
                 case 0x003:
                     Toast.makeText(context,"邮件发送失败",Toast.LENGTH_SHORT).show();
                     break;
                 case 0x004:
-                    Toast.makeText(context,"短信发送成功",Toast.LENGTH_SHORT).show();
-                    saveAlarmInfo();
+                    if(SMSSuccess==0) {
+                        SMSSuccess=1;
+                        Toast.makeText(context,"短信发送成功",Toast.LENGTH_SHORT).show();
+                        saveAlarmInfo();
+                    }
                     break;
                 case 0x005:
                     Toast.makeText(context,"短信发送失败",Toast.LENGTH_SHORT).show();
@@ -175,7 +183,7 @@ public class SendAlarmInfo extends StatusBarUtil implements View.OnClickListener
                             "【"+ VehicleLic.getText().toString()+"】" +
                             "机器于【"+GPSDateTime.getText().toString()+"】在" +
                             "【"+Position.getText().toString()+"】" +
-                            "发生"+"【"+DealType.getText().toString().split(";")+"】" ;
+                            "发生"+"【"+DealType.getText().toString().substring(0,DealType.getText().toString().length()-1)+"】" ;
                 }
                 break;
             case R.id.ad_btn_send_cancel:
@@ -184,6 +192,7 @@ public class SendAlarmInfo extends StatusBarUtil implements View.OnClickListener
             case R.id.ad_btn_send_confirm:
                 if(sendType==1){
                     //1.发送电子邮件:
+                    EmailSuccess=0;
                     ArrayList<String> email=new ArrayList<String>();
                     for (int i=0;i<linkMan.size();i++) {
                         email.add(linkMan.get(i).getEmail());
@@ -211,6 +220,7 @@ public class SendAlarmInfo extends StatusBarUtil implements View.OnClickListener
                     */
 
                     //2.发送短信（打开短信接口）
+                    SMSSuccess=0;
                     for (int i=0;i<linkMan.size();i++) {
                         sendSMS(linkMan.get(i).getLinkManMobile(),msg);
                     }

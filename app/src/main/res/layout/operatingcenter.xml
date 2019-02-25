@@ -252,20 +252,20 @@
             android:layout_below="@+id/opc_ly_jk"
             android:clickable="true"
             android:focusable="true"
-            android:visibility="gone"
+            android:visibility="visible"
             >
 
             <ImageView
                 android:id="@+id/opc_img_yd"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/yd"
+                android:src="@drawable/dzwl"
                 android:layout_centerVertical="true"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="远程遥控"
+                android:text="电子围栏"
                 android:layout_toRightOf="@+id/opc_img_yd"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
@@ -406,7 +406,7 @@
                 android:id="@+id/opc_img_add"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/exit1"
+                android:src="@drawable/zcyh"
                 android:layout_centerVertical="true"
                 />
             <TextView

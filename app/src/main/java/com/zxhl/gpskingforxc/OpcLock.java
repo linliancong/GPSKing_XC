@@ -33,7 +33,9 @@ import com.zxhl.util.WebServiceUtils;
 
 import org.ksoap2.serialization.SoapObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -86,6 +88,8 @@ public class OpcLock extends StatusBarUtil implements View.OnClickListener,TextW
     private ImageView lock_img_sche;
     private AnimationDrawable anima;
 
+    private SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
 
     Handler handler=new Handler(){
         @Override
@@ -94,7 +98,7 @@ public class OpcLock extends StatusBarUtil implements View.OnClickListener,TextW
                 case 0x404:
                     lock_ly_sche.setVisibility(View.GONE);
                     anima.stop();
-                    data.add(new Logs("服务器有点问题，我们正在全力修复！"));
+                    data.add(new Logs("【"+sf.format(new Date())+"】："+"服务器有点问题，我们正在全力修复！"));
                     adapter_log.notifyDataSetChanged();
                     break;
                 case 0x001:
@@ -118,17 +122,17 @@ public class OpcLock extends StatusBarUtil implements View.OnClickListener,TextW
                     lock_ly_sche.setVisibility(View.GONE);
                     anima.stop();
                     if(remoteLock.equals("1")||remoteLock.equals("2")) {
-                        data.add(new Logs("【"+vehicle.getText()+"】：下发 【" + command + "】指令成功！"));
+                        data.add(new Logs("【"+sf.format(new Date())+"】："+"【"+vehicle.getText()+"】下发【" + command + "】指令成功！"));
                         adapter_log.notifyDataSetChanged();
                     }else{
-                        data.add(new Logs("【"+vehicle.getText()+"】：下发 【" + command + "】指令失败！失败原因："+error));
+                        data.add(new Logs("【"+sf.format(new Date())+"】："+"【"+vehicle.getText()+"】下发【" + command + "】指令失败！失败原因："+error));
                         adapter_log.notifyDataSetChanged();
                     }
                     break;
                 case 0x005:
                     lock_ly_sche.setVisibility(View.GONE);
                     anima.stop();
-                    data.add(new Logs("【"+vehicle.getText()+"】：下发 【" + command + "】指令失败！请稍后再试。"));
+                    data.add(new Logs("【"+sf.format(new Date())+"】："+"【"+vehicle.getText()+"】下发【" + command + "】指令失败！请稍后再试。"));
                     adapter_log.notifyDataSetChanged();
                     break;
             }
@@ -282,7 +286,7 @@ public class OpcLock extends StatusBarUtil implements View.OnClickListener,TextW
                 break;
             case R.id.lock_ydkz:
                 //油电控制
-                Intent it3=new Intent(context,OpcOilEleControl.class);
+                Intent it3=new Intent(context,OpcElectronicFence.class);
                 it3.putExtra("VehicleLic",vehicle.getText().toString());
                 it3.putExtra("IsOnline",pression);
                 startActivity(it3);

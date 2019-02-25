@@ -1,5 +1,7 @@
 package com.zxhl.gpskingforxc;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -42,7 +44,6 @@ import com.zxhl.entity.LatLngInfo;
 import com.zxhl.util.Constants;
 import com.zxhl.util.ImgTxtLayout;
 import com.zxhl.util.SharedPreferenceUtils;
-import com.zxhl.util.ShowKeyboard;
 import com.zxhl.util.StatusBarUtil;
 import com.zxhl.util.WebServiceUtils;
 
@@ -76,6 +77,9 @@ public class OpcEleFLocation extends StatusBarUtil implements AMapLocationListen
     private List<String> locat=new ArrayList<>();
     private List<String> autoVehLic=new ArrayList<>();
     private ArrayAdapter<String> adapter;
+
+    private double longitude =0;
+    private double latitude =0;
 
 
     //声明AMapLocationClient对象
@@ -219,13 +223,20 @@ public class OpcEleFLocation extends StatusBarUtil implements AMapLocationListen
         aMap.setOnMapClickListener(new AMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
-                marker.hideInfoWindow();
+                aMap.clear();
+                longitude =latLng.longitude;
+                latitude =latLng.latitude;
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.icon(BitmapDescriptorFactory.fromResource(R.mipmap.location_marker));
+                markerOptions.position(latLng);
+                aMap.addMarker(markerOptions);
+                aMap.moveCamera(CameraUpdateFactory.changeLatLng(latLng));
             }
         });
 
         search.setOnClickListener(this);
         getVeh.setOnClickListener(this);
-        vehicle.addTextChangedListener(this);
+        //vehicle.addTextChangedListener(this);
         back.setOnClickListener(new ImgTxtLayout.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -264,7 +275,7 @@ public class OpcEleFLocation extends StatusBarUtil implements AMapLocationListen
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.opc_location;
+        return R.layout.opc_eleflocation;
     }
 
     private void initLocation() {
@@ -506,29 +517,14 @@ public class OpcEleFLocation extends StatusBarUtil implements AMapLocationListen
                 vehicle.setVisibility(View.VISIBLE);
                 break;
             case R.id.opc_btn_get:
-                ShowKeyboard.hideKeyboard(vehicle);
-                int permiss=0;
-                for(int i=0;i<autoVehLic.size();i++)
-                {
-                    if(vehicle.getText().toString().equalsIgnoreCase(autoVehLic.get(i))){
-                        permiss=1;
-                        break;
-                    }
-                }
-                if(permiss==1){
-                    getPoi();
-                    opc_ly_sche.setVisibility(View.VISIBLE);
-                    map.setVisibility(View.GONE);
-                    google_map.setVisibility(View.GONE);
-                    anima.start();
-                    title.setVisibility(View.VISIBLE);
-                    search.setVisibility(View.VISIBLE);
-                    img1.setVisibility(View.GONE);
-                    img2.setVisibility(View.GONE);
-                    vehicle.setVisibility(View.GONE);
-                }
-                else{
-                    Toast.makeText(OpcEleFLocation.this,"机号输入有误或者您没有权限操作",Toast.LENGTH_SHORT).show();
+                if(longitude !=0&& latitude !=0) {
+                    Intent intent = getIntent();
+                    intent.putExtra("Lon", longitude);
+                    intent.putExtra("Lat", latitude);
+                    setResult(0x002, intent);
+                    finish();
+                }else{
+                    Toast.makeText(OpcEleFLocation.this,"地址不能为空，请选择...",Toast.LENGTH_SHORT).show();
                 }
                 break;
         }
@@ -594,9 +590,12 @@ public class OpcEleFLocation extends StatusBarUtil implements AMapLocationListen
 
     public void showGaodeMap(){
         if(locat.size()>6) {
+            //getVeh.setEnabled(true);
             double lat = 0, lng = 0;
             Double dlat = new Double(locat.get(5));
             Double dlng = new Double(locat.get(6));
+            latitude =dlat;
+            longitude =dlng;
             lat = dlat.doubleValue();
             lng = dlng.doubleValue();
             markerOptions = new MarkerOptions();
@@ -622,6 +621,7 @@ public class OpcEleFLocation extends StatusBarUtil implements AMapLocationListen
             //Toast.makeText(getApplicationContext(),"获取成功",Toast.LENGTH_LONG).show();
         }
         else {
+            //getVeh.setEnabled(false);
             Toast.makeText(OpcEleFLocation.this,"没有查询到位置信息",Toast.LENGTH_SHORT).show();
         }
 

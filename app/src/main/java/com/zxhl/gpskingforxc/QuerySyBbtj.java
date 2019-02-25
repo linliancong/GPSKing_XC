@@ -15,6 +15,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -84,6 +85,14 @@ public class QuerySyBbtj extends StatusBarUtil implements View.OnClickListener,T
     private Calendar selectedDate;
 
 
+    //控件
+    private TextView Yesterday;
+    private TextView MonthTotal;
+    private TextView YearTotal;
+    private LinearLayout bbtj_visible;
+    private List<String> WorkHoursTotal;
+
+
     Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -92,12 +101,14 @@ public class QuerySyBbtj extends StatusBarUtil implements View.OnClickListener,T
                     anima.stop();
                     bbtj_ly_sche.setVisibility(View.GONE);
                     lineChart.setVisibility(View.GONE);
+                    bbtj_visible.setVisibility(View.GONE);
                     Toast.makeText(QuerySyBbtj.this,"没有查询到数据，请稍后重试",Toast.LENGTH_SHORT).show();
                     break;
                 case 0x404:
                     anima.stop();
                     bbtj_ly_sche.setVisibility(View.GONE);
                     lineChart.setVisibility(View.GONE);
+                    bbtj_visible.setVisibility(View.GONE);
                     Toast.makeText(QuerySyBbtj.this,"服务器有点问题，我们正在全力修复！",Toast.LENGTH_SHORT).show();
                     break;
                 case 0x001:
@@ -111,6 +122,12 @@ public class QuerySyBbtj extends StatusBarUtil implements View.OnClickListener,T
                     lineChart.setVisibility(View.VISIBLE);
                     anima.stop();
                     bbtj_ly_sche.setVisibility(View.GONE);
+                    break;
+                case 0x003:
+                    bbtj_visible.setVisibility(View.VISIBLE);
+                    Yesterday.setText(WorkHoursTotal.get(0));
+                    MonthTotal.setText(WorkHoursTotal.get(1));
+                    YearTotal.setText(WorkHoursTotal.get(2));
                     break;
             }
         }
@@ -139,6 +156,11 @@ public class QuerySyBbtj extends StatusBarUtil implements View.OnClickListener,T
         query=findViewById(R.id.bbtj_btn_get);
         lineChart=findViewById(R.id.bbtj_chart);
         gkxx_imgtxt_title=findViewById(R.id.gkxx_imgtxt_title);
+
+        Yesterday= findViewById(R.id.bbtj_Yesterday);
+        MonthTotal= findViewById(R.id.bbtj_MonthTotal);
+        YearTotal= findViewById(R.id.bbtj_YearTotal);
+        bbtj_visible=findViewById(R.id.bbtj_visible);
 
         bbtj_ly_sche=findViewById(R.id.bbtj_ly_sche);
         bbtj_img_sche=findViewById(R.id.bbtj_img_sche);
@@ -196,6 +218,7 @@ public class QuerySyBbtj extends StatusBarUtil implements View.OnClickListener,T
                     anima.start();
                     bbtj_ly_sche.setVisibility(View.VISIBLE);
                     GetWorkHour();
+                    GetWorkHourTotal();
                 }
                 else{
                     Toast.makeText(QuerySyBbtj.this,"机号输入有误或者您没有权限操作",Toast.LENGTH_SHORT).show();
@@ -449,6 +472,48 @@ public class QuerySyBbtj extends StatusBarUtil implements View.OnClickListener,T
                 }
             }
         });
+    }
+
+    //查询工作时间统计
+    private void GetWorkHourTotal(){
+        HashMap<String,String> proper=new HashMap<>();
+        proper.put("VehicleLic",VehicleLic.getText().toString());
+        /*//测试数据
+        proper.put("VehicleLic","XH000181");
+        proper.put("DateDay","20171231");*/
+
+
+        WebServiceUtils.callWebService(WebServiceUtils.WEB_SERVER_URL, "GetWorkHourTotal", proper, new WebServiceUtils.WebServiceCallBack() {
+            @Override
+            public void callBack(SoapObject result) {
+                if(result!=null){
+                    List<String> list=new ArrayList<String>();
+                    list=paraseTotal(result);
+                    if(list.size()!=0){
+                        WorkHoursTotal=list;
+                        handler.sendEmptyMessage(0x003);
+                    }else
+                    {
+                        handler.sendEmptyMessage(0x403);
+                    }
+                }
+                else{
+                    handler.sendEmptyMessage(0x404);
+                }
+            }
+        });
+    }
+
+    private List<String> paraseTotal(SoapObject result){
+        List<String> list=new ArrayList<>();
+        SoapObject soap= (SoapObject) result.getProperty(0);
+        if(soap==null) {
+            return null;
+        }
+        for (int i=0;i<soap.getPropertyCount();i++){
+            list.add(soap.getProperty(i).toString());
+        }
+        return list;
     }
 
     private List<String> parase(SoapObject result){

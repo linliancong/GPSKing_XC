@@ -720,7 +720,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="总工作时间："
+                    android:text="今日工作时间："
                     android:textSize="12sp"
                     />
                 <TextView
@@ -741,7 +741,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1.5"
                     android:layout_height="wrap_content"
-                    android:text="总作业时间："
+                    android:text="总工作时间："
                     android:textSize="12sp"
                     />
                 <TextView

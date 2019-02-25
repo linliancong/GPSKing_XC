@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/oilelecontrol_rl1"
+        android:id="@+id/electronicfence_rl1"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:background="@color/bg_white"
@@ -15,7 +15,7 @@
 
 
         <com.zxhl.util.ImgTxtLayout
-            android:id="@+id/oilelecontrol_back"
+            android:id="@+id/electronicfence_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -42,12 +42,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/oilelecontrol_rl1"
+        android:layout_below="@+id/electronicfence_rl1"
         android:background="@color/black_bg"
         >
 
         <LinearLayout
-            android:id="@+id/oilelecontrol_ly1"
+            android:id="@+id/electronicfence_ly1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -64,7 +64,7 @@
                 android:src="@mipmap/search_bar"
                 />
             <AutoCompleteTextView
-                android:id="@+id/oilelecontrol_vehicle"
+                android:id="@+id/electronicfence_vehicle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="8"
@@ -85,11 +85,11 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/oilelecontrol_ly2"
+            android:id="@+id/electronicfence_ly2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_below="@+id/oilelecontrol_ly1"
+            android:layout_below="@+id/electronicfence_ly1"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
@@ -102,7 +102,7 @@
                 android:orientation="horizontal"
                 >
                 <Button
-                    android:id="@+id/oilelecontrol_sc"
+                    android:id="@+id/electronicfence_sc"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
@@ -118,7 +118,7 @@
                     android:layout_marginLeft="15dp"
                     />
                 <Button
-                    android:id="@+id/oilelecontrol_js"
+                    android:id="@+id/electronicfence_js"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
@@ -134,7 +134,7 @@
                     android:layout_marginLeft="15dp"
                     />
                 <Button
-                    android:id="@+id/oilelecontrol_jk"
+                    android:id="@+id/electronicfence_jk"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
@@ -151,7 +151,7 @@
                 android:layout_marginTop="15dp"
                 >
                 <Button
-                    android:id="@+id/oilelecontrol_ssdw"
+                    android:id="@+id/electronicfence_ssdw"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
@@ -167,7 +167,7 @@
                     android:layout_marginLeft="15dp"
                     />
                 <Button
-                    android:id="@+id/oilelecontrol_yjgl"
+                    android:id="@+id/electronicfence_yjgl"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
@@ -183,7 +183,7 @@
                     android:layout_marginLeft="15dp"
                     />
                 <Button
-                    android:id="@+id/oilelecontrol_log"
+                    android:id="@+id/electronicfence_log"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
@@ -196,10 +196,10 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/oilelecontrol_txt_veh"
+            android:id="@+id/electronicfence_txt_veh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/oilelecontrol_ly2"
+            android:layout_below="@+id/electronicfence_ly2"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="20dp"
@@ -210,121 +210,140 @@
             />
 
         <RelativeLayout
-            android:id="@+id/oilelecontrol_rl_opc"
+            android:id="@+id/electronicfence_rl_opc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/oilelecontrol_txt_veh"
+            android:layout_below="@+id/electronicfence_txt_veh"
             android:layout_marginTop="30dp"
             android:gravity="center_horizontal"
             android:visibility="gone"
             >
-            <LinearLayout
-                android:id="@+id/oilelecontrol_ly_yjdyd"
+            <Button
+                android:id="@+id/electronicfence_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/lock_back"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/yjdyd"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="一级断油断电"
-                    android:layout_marginLeft="10dp"
-                    />
-            </LinearLayout>
+                android:text="选择地点..."
+                android:textColor="@color/blue_500"
+                android:layout_marginLeft="40dp"
+                android:background="@null"
 
+                />
             <LinearLayout
-                android:id="@+id/oilelecontrol_ly_ejdyd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/lock_back"
+                android:id="@+id/locktime_ly3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_toRightOf="@+id/oilelecontrol_ly_yjdyd"
+                android:background="@drawable/lock_edit"
+                android:layout_toRightOf="@+id/electronicfence_location"
+                android:layout_marginTop="5dp"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="40dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:gravity="center"
                 >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ejdyd"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/electronicfence_km"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="二级断油断电"
-                    android:layout_marginLeft="10dp"
+                    android:background="@null"
+                    android:hint="请输入区域范围（千米）"
+                    android:textSize="14dp"
+                    android:inputType="numberDecimal"
                     />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/oilelecontrol_ly_yjhfyd"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/lock_back"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_below="@+id/oilelecontrol_ly_yjdyd"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@+id/locktime_ly3"
+                android:gravity="center_horizontal"
                 >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/yjyd"
-                    />
-                <TextView
+                <LinearLayout
+                    android:id="@+id/electronicfence_ly_jqy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="一级恢复油电"
-                    android:layout_marginLeft="10dp"
-                    />
-            </LinearLayout>
+                    android:background="@drawable/lock_back"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:visibility="visible"
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/dzwlj"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="进区域电子围栏"
+                        android:layout_marginLeft="10dp"
+                        />
+                </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/oilelecontrol_ly_ejhfyd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/lock_back"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_toRightOf="@+id/oilelecontrol_ly_yjhfyd"
-                android:layout_marginLeft="20dp"
-                android:layout_below="@+id/oilelecontrol_ly_yjdyd"
-                android:layout_marginTop="15dp"
-                >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ejyd"
-                    />
-                <TextView
+                <LinearLayout
+                    android:id="@+id/electronicfence_ly_cqy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="二级恢复油电"
-                    android:layout_marginLeft="10dp"
-                    />
-            </LinearLayout>
+                    android:background="@drawable/lock_back"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@+id/electronicfence_ly_jqy"
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/dzwlc"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="出区域电子围栏"
+                        android:layout_marginLeft="10dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/electronicfence_ly_jc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/lock_back"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@+id/electronicfence_ly_jqy"
+
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/dzwljc"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="解除电子围栏"
+                        android:layout_marginLeft="10dp"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
         </RelativeLayout>
 
 
@@ -332,7 +351,7 @@
             android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/oilelecontrol_rl_opc"
+            android:layout_below="@+id/electronicfence_rl_opc"
             android:orientation="vertical"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
@@ -374,15 +393,15 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/oilelecontrol_ly_sche"
+        android:id="@+id/electronicfence_ly_sche"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/bg_gray_opc"
         android:visibility="gone"
-        android:layout_below="@+id/oilelecontrol_rl1"
+        android:layout_below="@+id/electronicfence_rl1"
         >
         <ImageView
-            android:id="@+id/oilelecontrol_img_sche"
+            android:id="@+id/electronicfence_img_sche"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerInParent="true"
@@ -395,7 +414,7 @@
             android:text="指令下发中，请稍后..."
             android:textSize="14sp"
             android:textColor="@color/black"
-            android:layout_below="@+id/oilelecontrol_img_sche"
+            android:layout_below="@+id/electronicfence_img_sche"
             android:layout_centerInParent="true"
             />
 

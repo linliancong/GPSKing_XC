@@ -34,7 +34,9 @@ import com.zxhl.util.WebServiceUtils;
 
 import org.ksoap2.serialization.SoapObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -88,6 +90,8 @@ public class OpcLockTime extends StatusBarUtil implements View.OnClickListener,T
     private ImageView locktime_img_sche;
     private AnimationDrawable anima;
 
+    private SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+
 
     Handler handler=new Handler(){
         @Override
@@ -98,9 +102,9 @@ public class OpcLockTime extends StatusBarUtil implements View.OnClickListener,T
                     anima.stop();
                     //scroll_visble.setVisibility(View.VISIBLE);
                     if(type.equals("1")&&time.getText().length()==0) {
-                        data.add(new Logs("延迟锁车时间为空，请输入时间后重试！"));
+                        data.add(new Logs("【"+sf.format(new Date())+"】："+"延迟锁车时间为空，请输入时间后重试！"));
                     }else {
-                        data.add(new Logs("服务器有点问题，我们正在全力修复！"));
+                        data.add(new Logs("【"+sf.format(new Date())+"】："+"服务器有点问题，我们正在全力修复！"));
                     }
                     adapter_log.notifyDataSetChanged();
                     break;
@@ -126,16 +130,16 @@ public class OpcLockTime extends StatusBarUtil implements View.OnClickListener,T
                     anima.stop();
                     if(remoteLock.equals("1")) {
                         if(type.equals("0")) {
-                            data.add(new Logs("【" + vehicle.getText() + "】：下发 【" + command + "】指令成功！"));
+                            data.add(new Logs("【"+sf.format(new Date())+"】："+"【" + vehicle.getText() + "】下发【" + command + "】指令成功！"));
                         }else {
-                            data.add(new Logs("【" + vehicle.getText() + "】：下发 【" + command + "】 延迟 【" + time.getText() + "】 分钟指令成功！"));
+                            data.add(new Logs("【"+sf.format(new Date())+"】："+"【" + vehicle.getText() + "】下发【" + command + "】时间为【" + time.getText() + "】分钟指令成功！"));
                         }
                         adapter_log.notifyDataSetChanged();
                     }else{
                         if(type.equals("0")) {
-                            data.add(new Logs("【" + vehicle.getText() + "】：下发 【" + command + "】指令失败！失败原因：" + error));
+                            data.add(new Logs("【"+sf.format(new Date())+"】："+"【" + vehicle.getText() + "】下发【" + command + "】指令失败！失败原因：" + error));
                         }else {
-                            data.add(new Logs("【" + vehicle.getText() + "】：下发 【" + command + "】 延迟 【" + time.getText() + "】 分钟指令失败！失败原因：" + error));
+                            data.add(new Logs("【"+sf.format(new Date())+"】："+"【" + vehicle.getText() + "】下发【" + command + "】时间为【" + time.getText() + "】分钟指令失败！失败原因：" + error));
                         }
                         adapter_log.notifyDataSetChanged();
                     }
@@ -144,9 +148,9 @@ public class OpcLockTime extends StatusBarUtil implements View.OnClickListener,T
                     locktime_ly_sche.setVisibility(View.GONE);
                     anima.stop();
                     if(type.equals("0")) {
-                        data.add(new Logs("【" + vehicle.getText() + "】：下发 【" + command + "】指令失败！请稍后再试。"));
+                        data.add(new Logs("【"+sf.format(new Date())+"】："+"【" + vehicle.getText() + "】下发【" + command + "】指令失败！请稍后再试。"));
                     }else {
-                        data.add(new Logs("【" + vehicle.getText() + "】：下发 【" + command + "】 延迟 【" + time.getText() + "】 分钟 指令失败！请稍后再试。"));
+                        data.add(new Logs("【"+sf.format(new Date())+"】："+"【" + vehicle.getText() + "】下发【" + command + "】时间为【" + time.getText() + "】分钟 指令失败！请稍后再试。"));
                     }
                     adapter_log.notifyDataSetChanged();
                     break;
@@ -262,7 +266,7 @@ public class OpcLockTime extends StatusBarUtil implements View.OnClickListener,T
             case R.id.locktime_ly_yjsc:
                 ShowKeyboard.hideKeyboard(time);
                 dialog.show();
-                text.setText("确认下发 【定时锁车】 延迟 【"+time.getText()+"】 分钟 指令？");
+                text.setText("确认下发 【定时锁车】 时间为 【"+time.getText()+"】 分钟 指令？");
                 type="1";
                 command="定时锁车";
                 break;
@@ -314,7 +318,7 @@ public class OpcLockTime extends StatusBarUtil implements View.OnClickListener,T
                 break;
             case R.id.locktime_ydkz:
                 //油电控制
-                Intent it3=new Intent(context,OpcOilEleControl.class);
+                Intent it3=new Intent(context,OpcElectronicFence.class);
                 it3.putExtra("VehicleLic",vehicle.getText().toString());
                 it3.putExtra("IsOnline",pression);
                 startActivity(it3);
@@ -428,7 +432,6 @@ public class OpcLockTime extends StatusBarUtil implements View.OnClickListener,T
                     List<String> list=new ArrayList<String>();
                     SoapObject soapObject= (SoapObject) result.getProperty(0);
                     if(soapObject!=null){
-                        //油电控制：controlState
                         remoteLock=soapObject.getProperty("LockResult").toString();
                         error=soapObject.getProperty("error").toString();
                         handler.sendEmptyMessage(0x004);
