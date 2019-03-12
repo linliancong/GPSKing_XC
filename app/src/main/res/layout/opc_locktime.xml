@@ -242,7 +242,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:hint="请输入延时锁车时间（分）"
+                        android:hint="请输入超时锁车时间（分）"
                         android:textSize="14dp"
                         android:inputType="number"
                         />
@@ -276,7 +276,7 @@
                         android:id="@+id/locktime_yjsc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="定时锁车"
+                        android:text="超时锁车"
                         android:layout_marginLeft="10dp"
                         />
                 </LinearLayout>
@@ -304,7 +304,7 @@
                         android:id="@+id/locktime_tcyj"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="解除定时"
+                        android:text="解除超时"
                         android:layout_marginLeft="10dp"
                         />
                 </LinearLayout>

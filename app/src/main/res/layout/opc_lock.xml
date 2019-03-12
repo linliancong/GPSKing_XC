@@ -171,7 +171,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="26dp"
-                    android:text="定时锁车"
+                    android:text="超时锁车"
                     android:textColor="@color/light_blue_500"
                     android:background="@null"
                     />
